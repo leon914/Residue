@@ -1,6 +1,7 @@
 package com.example.lhi06.residue;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -13,32 +14,34 @@ import butterknife.BindView;
 
 public class MainActivity extends AppCompatActivity {
 
-    //    @BindView(R.id.fab)
-//    Button button1;
-//
-    @BindView(R.id.request)
-    EditText editText1;
+    @BindView(R.id.add_review)
 
     private Button searchButton;
-//    private EditText editText1;
-//    private Act
+    private EditText editText1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        editText1 = (EditText) findViewById(R.id.request);
+        searchButton = (Button) findViewById(R.id.searchButton);
+        FloatingActionButton addReviewButton = (FloatingActionButton) findViewById(R.id.add_review);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        searchButton = (Button) findViewById(R.id.searchButton);
-        editText1 = (EditText) findViewById(R.id.request);
-
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String lol = editText1.getText().toString();
-                //handler.urlBuilder(lol);
+                // Code for searching for reviews done
+//                String artistName = editText1.getText().toString();
+//                handler.urlBuilder(artistName);
+            }
+        });
+
+        addReviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            //will navigate to the album searching activity
             }
         });
 
