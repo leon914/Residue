@@ -1,9 +1,24 @@
-*.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+out/
+build/
+captures/
+projectFilesBackup/
+
+# OS files
 .DS_Store
-/build
-/captures
-.externalNativeBuild
+
+# Local configuration files
+local.properties
+gradle-app.setting
+
+# IDEA/Android Studio project files
+/.idea/*
+*.iml
+
+# Gradle cache
+.gradle
