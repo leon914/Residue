@@ -29,10 +29,10 @@
         android:text="@string/search_button"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
-        android:layout_marginEnd="11dp"
+        android:layout_marginEnd="@dimen/search_button_margin"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="@dimen/search_button_margin"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="0dp" />
+        android:layout_marginRight="@dimen/search_button_margin" />
 
 </android.support.constraint.ConstraintLayout>
