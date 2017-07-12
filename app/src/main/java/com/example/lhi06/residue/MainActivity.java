@@ -11,28 +11,29 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.add_review)
-
-    private Button searchButton;
-    private EditText editText1;
+    @BindView(R.id.add_review) FloatingActionButton addReviewButton;
+    @BindView(R.id.request) EditText searchField;
+    @BindView(R.id.searchButton) Button searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editText1 = (EditText) findViewById(R.id.request);
-        searchButton = (Button) findViewById(R.id.searchButton);
-        FloatingActionButton addReviewButton = (FloatingActionButton) findViewById(R.id.add_review);
+        ButterKnife.bind(this);
+//        searchField = (EditText) findViewById(R.id.request);
+//        searchButton = (Button) findViewById(R.id.searchButton);
+//        FloatingActionButton addReviewButton = (FloatingActionButton) findViewById(R.id.add_review);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Code for searching for reviews done
+//                Code for searching for reviews done
 //                String artistName = editText1.getText().toString();
 //                handler.urlBuilder(artistName);
             }
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         addReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            //will navigate to the album searching activity
+//            will navigate to the album searching activity
             }
         });
 
@@ -49,19 +50,19 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+//         Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+//         Handle action bar item clicks here. The action bar will
+//         automatically handle clicks on the Home/Up button, so long
+//         as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+//        noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
