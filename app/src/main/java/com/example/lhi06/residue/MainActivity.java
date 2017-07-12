@@ -24,16 +24,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        searchField = (EditText) findViewById(R.id.request);
-//        searchButton = (Button) findViewById(R.id.searchButton);
-//        FloatingActionButton addReviewButton = (FloatingActionButton) findViewById(R.id.add_review);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Code for searching for reviews done
+//                TODO: Code for searching for reviews done
 //                String artistName = editText1.getText().toString();
 //                handler.urlBuilder(artistName);
             }
@@ -42,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         addReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//            will navigate to the album searching activity
+//          TODO: Navigate to the album searching activity
+
             }
         });
 

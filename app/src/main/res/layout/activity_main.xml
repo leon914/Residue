@@ -20,9 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main"
-        android:id="@+id/include" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/add_review"
         android:layout_width="80dp"
@@ -33,6 +30,10 @@
         app:layout_anchorGravity="bottom|right"
         app:srcCompat="@android:drawable/ic_input_add"
         app:backgroundTint="@color/colour_main"/>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_main" />
 
 
 </android.support.design.widget.CoordinatorLayout>
