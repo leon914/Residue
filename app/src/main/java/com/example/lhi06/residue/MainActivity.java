@@ -17,15 +17,13 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.add_review) FloatingActionButton addReviewButton;
     @BindView(R.id.request) EditText searchField;
-    @BindView(R.id.searchButton) Button searchButton;
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.search_button) Button searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,18 +51,4 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-         //Handle action bar item clicks here. The action bar will
-         //automatically handle clicks on the Home/Up button, so long
-         //as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
