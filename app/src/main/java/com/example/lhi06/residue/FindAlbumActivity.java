@@ -3,7 +3,7 @@ package com.example.lhi06.residue;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class findAlbum extends AppCompatActivity {
+public class FindAlbumActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

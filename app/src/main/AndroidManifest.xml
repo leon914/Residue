@@ -19,8 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".findAlbum"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".FindAlbumActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

@@ -20,7 +20,7 @@
         android:layout_alignParentRight="true"
         android:text="@string/search_button"
         android:background="@color/colour_main"
-        android:textColor="@color/colour_text"/>
+        android:textColor="@android:color/white"/>
 
 
     <android.support.design.widget.FloatingActionButton

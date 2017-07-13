@@ -2,5 +2,4 @@
     <string name="app_name">Residue</string>
     <string name="search_box">Enter an Artists name...</string>
     <string name="search_button">Search</string>
-    <string name="action_settings">Settings</string>
 </resources>

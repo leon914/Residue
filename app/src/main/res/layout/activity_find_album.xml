@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lhi06.residue.findAlbum">
+    tools:context="com.example.lhi06.residue.FindAlbumActivity">
 
     <EditText
         android:id="@+id/request"
@@ -20,6 +20,6 @@
         android:layout_alignParentRight="true"
         android:text="@string/search_button"
         android:background="@color/colour_main"
-        android:textColor="@color/colour_text"/>
+        android:textColor="@android:color/white"/>
 
 </RelativeLayout>
