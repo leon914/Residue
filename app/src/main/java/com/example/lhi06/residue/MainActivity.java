@@ -1,5 +1,6 @@
 package com.example.lhi06.residue;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View view) {
                 //TODO: Navigate to the album searching activity
-
+                startActivity(new Intent(MainActivity.this, findAlbum.class));
             }
         });
 

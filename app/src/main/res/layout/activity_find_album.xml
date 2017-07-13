@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lhi06.residue.MainActivity">
+    tools:context="com.example.lhi06.residue.findAlbum">
 
     <EditText
         android:id="@+id/request"
@@ -21,18 +21,5 @@
         android:text="@string/search_button"
         android:background="@color/colour_main"
         android:textColor="@color/colour_text"/>
-
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/add_review"
-        android:layout_width="@dimen/float_button_width"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="@dimen/float_button_margin"
-        android:layout_marginRight="@dimen/float_button_margin"
-        app:backgroundTint="@color/colour_main"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
 
 </RelativeLayout>
