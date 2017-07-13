@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lhi06.residue.MainActivity">
+
+    <EditText
+        android:id="@+id/request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/search_box"
+        android:layout_toLeftOf="@+id/search_button"/>
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/search_button_margin"
+        android:layout_marginRight="@dimen/search_button_margin"
+        android:layout_marginTop="@dimen/search_button_margin"
+        android:layout_alignParentRight="true"
+        android:text="@string/search_button" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_review"
+        android:layout_width="@dimen/float_button_width"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/float_button_margin"
+        android:layout_marginRight="@dimen/float_button_margin"
+        app:backgroundTint="@color/colour_main"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+
+</RelativeLayout>
