@@ -20,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.search_button) Button searchButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 //TODO: Code for searching for reviews done
                 //String artistName = editText1.getText().toString();
                 //handler.urlBuilder(artistName);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         addReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 //TODO: Navigate to the album searching activity
 
             }
