@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Residue</string>
-    <string name="main_menu">Main Menu</string>
-    <string name="action_settings">Settings</string>
     <string name="search_box">Enter an Artists name...</string>
     <string name="search_button">Search</string>
-
 </resources>
