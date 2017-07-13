@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="@string/search_button"
-        android:background="@color/colour_main"
+        android:background="@color/colorPrimary"
         android:textColor="@android:color/white"/>
 
 
@@ -31,7 +31,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/float_button_margin"
         android:layout_marginRight="@dimen/float_button_margin"
-        app:backgroundTint="@color/colour_main"
+        app:backgroundTint="@color/colorPrimary"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 

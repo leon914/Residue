@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         addReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                //TODO: Navigate to the album searching activity
                 startActivity(new Intent(MainActivity.this, FindAlbumActivity.class));
             }
         });
