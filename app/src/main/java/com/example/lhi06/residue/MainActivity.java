@@ -1,11 +1,9 @@
 package com.example.lhi06.residue;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
         addReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                //TODO: Navigate to the album searching activity
-
+                startActivity(new Intent(MainActivity.this, FindAlbumActivity.class));
             }
         });
 
