@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.add_review) android.support.design.widget.FloatingActionButton addReviewButton;
+    @BindView(R.id.add_review) FloatingActionButton addReviewButton;
     @BindView(R.id.request) EditText searchField;
     @BindView(R.id.search_button) Button searchButton;
 

@@ -32,7 +32,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
     }
 
     @Override
-    public AlbumViewHolder onCreateViewHolder(final ViewGroup parent,final int viewType) {
+    public AlbumViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
         view = inflater.inflate(R.layout.row_item, parent, false);
         holder = new AlbumViewHolder(view);
         return holder;
@@ -51,16 +51,16 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
         return albumList.size();
     }
 
-    public class AlbumViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class AlbumViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView artistName, albumName;
         ImageView albumArt;
         public AlbumViewHolder(final View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            artistName=(TextView)itemView.findViewById(R.id.artist_name);
-            albumName =(TextView)itemView.findViewById(R.id.album_name);
-            albumArt =(ImageView)itemView.findViewById(R.id.album_art);
+            artistName = (TextView) itemView.findViewById(R.id.artist_name);
+            albumName = (TextView) itemView.findViewById(R.id.album_name);
+            albumArt = (ImageView) itemView.findViewById(R.id.album_art);
 
         }
 

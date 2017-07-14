@@ -1,7 +1,5 @@
 package com.example.lhi06.residue;
 
-import java.net.URL;
-
 public class Album {
 
     private String collectionName;
