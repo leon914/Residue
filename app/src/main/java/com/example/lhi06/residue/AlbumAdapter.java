@@ -1,7 +1,7 @@
 package com.example.lhi06.residue;
 
 
-import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,38 +12,33 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
+class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
-    private ArrayList<Album> albumList = new ArrayList<>();
-    private final LayoutInflater inflater;
-    View view;
-    AlbumViewHolder holder;
-    private Context context;
+    private final Picasso picasso;
+    private List<Album> albumList = new ArrayList<>();
 
-    public AlbumAdapter(final Context context) {
-        this.context = context;
-        inflater = LayoutInflater.from(context);
+    private AlbumAdapter(@NonNull final Picasso picasso) {
+        this.picasso = picasso;
     }
 
-    public void setListContent(ArrayList<Album> albumList) {
+    public void setListContent(@NonNull final List<Album> albumList) {
         this.albumList = albumList;
         notifyItemRangeChanged(0, albumList.size());
     }
 
     @Override
-    public AlbumViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-        view = inflater.inflate(R.layout.row_item, parent, false);
-        holder = new AlbumViewHolder(view);
-        return holder;
+    public AlbumViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, @NonNull final int viewType) {
+        return new AlbumViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(final AlbumViewHolder holder, final int position) {
-        Album listItems = albumList.get(position);
+    public void onBindViewHolder(@NonNull final AlbumViewHolder holder, @NonNull final int position) {
+        final Album listItems = albumList.get(position);
         holder.artistName.setText(listItems.getArtistName());
         holder.albumName.setText(listItems.getCollectionName());
-        Picasso.with(context).load(listItems.getArtworkUrl()).into(holder.albumArt);
+        picasso.load(listItems.getArtworkUrl()).into(holder.albumArt);
     }
 
     @Override
@@ -51,11 +46,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
         return albumList.size();
     }
 
-    public class AlbumViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class AlbumViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView artistName, albumName;
         ImageView albumArt;
-        public AlbumViewHolder(final View itemView) {
+
+        AlbumViewHolder(@NonNull final View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             artistName = (TextView) itemView.findViewById(R.id.artist_name);
@@ -65,64 +61,15 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
         }
 
         @Override
-        public void onClick(View v) {
+        public void onClick(@NonNull final View v) {
 
         }
     }
 
-    public void removeAt(int position) {
+    public void removeAt(@NonNull final int position) {
         albumList.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(0, albumList.size());
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//    private ArrayList<Album> albumResults;
-//    Context mContext;
-//
-//    private static class ViewHolder {
-//        TextView artistName;
-//        TextView collectionName;
-//        ImageView artworkUrl100;
-//    }
-//
-//    public AlbumAdapter(ArrayList<Album> albums, Context context) {
-//        super(context, R.layout.row_item, albums);
-//        this.albumResults = albums;
-//        this.mContext=context;
-//    }
-//
-//    @Override
-//    public void onClick(View v) {
-//
-//        int position=(Integer) v.getTag();
-//        Object object= getItem(position);
-//        Album dataModel=(Album)object;
-//
-//        switch (v.getId())
-//        {
-//            case R.id.item_info:
-//                Snackbar.make(v, "Release date " +dataModel.getFeature(), Snackbar.LENGTH_LONG)
-//                        .setAction("No action", null).show();
-//                break;
-//        }
-//    }
-

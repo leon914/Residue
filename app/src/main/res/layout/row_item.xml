@@ -4,7 +4,7 @@
     android:layout_height="@dimen/album_art_size"
     android:orientation="horizontal"
     android:weightSum="1"
-    android:background="@drawable/my_custom"
+    android:background="@drawable/my_recycleview_element_border"
     android:padding="@dimen/album_art_border">
 
     <ImageView
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/my_custom"
+        android:background="@drawable/my_recycleview_element_border"
         android:padding="@dimen/album_info_border">
 
         <TextView
