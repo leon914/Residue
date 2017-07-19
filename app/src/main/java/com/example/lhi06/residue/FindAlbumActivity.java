@@ -1,11 +1,11 @@
 package com.example.lhi06.residue;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -53,14 +53,17 @@ public class FindAlbumActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(final Call<AlbumSearchResponse> call, final Throwable t) {
-                    Log.i("LEON", "onFailure:  FAILED" + t);
+                    Context context = getApplicationContext();
+                    CharSequence text = "Error: API Request Failed - " + t;
+                    Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
                 }
             });
 
         } catch (IOException e) {
-            e.printStackTrace();
+            CharSequence text = "Error: API Request Failed - " + e;
+            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
         } catch (NullPointerException e) {
-            CharSequence text = "Error: No Text Entered" + e;
+            CharSequence text = "Error: No Text Entered - " + e;
             Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
         }
     }
