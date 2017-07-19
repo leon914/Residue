@@ -29,18 +29,15 @@ public class Album {
         return artworkUrl100;
     }
 
-    @NonNull
-    public void setArtworkUrl(String artworkUrl100) {
+    public void setArtworkUrl(@NonNull final String artworkUrl100) {
         this.artworkUrl100 = artworkUrl100;
     }
 
-    @NonNull
-    public void setArtistName(String artistName) {
+    public void setArtistName(@NonNull final String artistName) {
         this.artistName = artistName;
     }
 
-    @NonNull
-    public void setCollectionName(String collectionName) {
+    public void setCollectionName(@NonNull final String collectionName) {
         this.collectionName = collectionName;
     }
 

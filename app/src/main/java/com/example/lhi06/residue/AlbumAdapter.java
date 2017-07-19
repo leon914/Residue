@@ -19,7 +19,7 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
     private final Picasso picasso;
     private List<Album> albumList = new ArrayList<>();
 
-    private AlbumAdapter(@NonNull final Picasso picasso) {
+    public AlbumAdapter(@NonNull final Picasso picasso) {
         this.picasso = picasso;
     }
 
