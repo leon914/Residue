@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 
 public class Album {
 
-    private final String collectionName;
-    private final String artistName;
-    private final String artworkUrl100;
+    private String collectionName;
+    private String artistName;
+    private String artworkUrl100;
 
     public Album(@NonNull final String collectionName, @NonNull final String artistName, @NonNull final String artworkUrl100) {
         this.collectionName = collectionName;
@@ -29,15 +29,18 @@ public class Album {
         return artworkUrl100;
     }
 
-    public void setArtworkUrl(@NonNull final String artworkUrl100) {
-         this.artworkUrl100 = artworkUrl100;
+    @NonNull
+    public void setArtworkUrl(String artworkUrl100) {
+        this.artworkUrl100 = artworkUrl100;
     }
 
-    public void setArtistName(@NonNull final String artistName) {
+    @NonNull
+    public void setArtistName(String artistName) {
         this.artistName = artistName;
     }
 
-    public void setCollectionName(@NonNull final String collectionName) {
+    @NonNull
+    public void setCollectionName(String collectionName) {
         this.collectionName = collectionName;
     }
 

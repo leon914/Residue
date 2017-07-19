@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
         addReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(@NonNull final View view) {
