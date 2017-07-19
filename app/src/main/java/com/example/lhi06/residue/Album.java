@@ -15,17 +15,17 @@ public class Album {
     }
 
     @NonNull
-    public String getCollectionName() {
+    String getCollectionName() {
         return collectionName;
     }
 
     @NonNull
-    public String getArtistName() {
+    String getArtistName() {
         return artistName;
     }
 
     @NonNull
-    public String getArtworkUrl() {
+    String getArtworkUrl() {
         return artworkUrl100;
     }
 

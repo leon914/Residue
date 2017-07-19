@@ -19,11 +19,11 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
     private final Picasso picasso;
     private List<Album> albumList = new ArrayList<>();
 
-    public AlbumAdapter(@NonNull final Picasso picasso) {
+    AlbumAdapter(@NonNull final Picasso picasso) {
         this.picasso = picasso;
     }
 
-    public void setListContent(@NonNull final List<Album> albumList) {
+    void setListContent(@NonNull final List<Album> albumList) {
         this.albumList = albumList;
         notifyDataSetChanged();
     }

@@ -1,13 +1,13 @@
 package com.example.lhi06.residue;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -27,10 +27,10 @@ public class FindAlbumActivity extends AppCompatActivity {
 
 
     @BindView(R.id.recycleView) RecyclerView recyclerView;
-    @Nullable @BindView(R.id.request) EditText editText;
+    @BindView(R.id.request) EditText editText;
 
     @Override
-    protected void onCreate(@NonNull final Bundle savedInstanceState) {
+    protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_album);
         ButterKnife.bind(this);
@@ -59,6 +59,9 @@ public class FindAlbumActivity extends AppCompatActivity {
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (NullPointerException e) {
+            CharSequence text = "Error: No Text Entered" + e;
+            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -12,7 +12,7 @@ public class AlbumSearchResponse {
 
     private List<Album> results;
 
-    public List<Album> getResults() {
+    List<Album> getResults() {
         return results;
     }
 
