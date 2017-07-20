@@ -12,10 +12,10 @@ public class Album {
     @SerializedName("artworkUrl100")
     private String artworkUrl;
 
-    public Album(@NonNull final String collectionName, @NonNull final String artistName, @NonNull final String artworkUrl100) {
+    public Album(@NonNull final String collectionName, @NonNull final String artistName, @NonNull final String artworkUrl) {
         this.collectionName = collectionName;
         this.artistName = artistName;
-        this.artworkUrl = artworkUrl100;
+        this.artworkUrl = artworkUrl;
     }
 
     @NonNull
@@ -33,8 +33,8 @@ public class Album {
         return artworkUrl;
     }
 
-    public void setArtworkUrl(@NonNull final String artworkUrl100) {
-        this.artworkUrl = artworkUrl100;
+    public void setArtworkUrl(@NonNull final String artworkUrl) {
+        this.artworkUrl = artworkUrl;
     }
 
     public void setArtistName(@NonNull final String artistName) {
