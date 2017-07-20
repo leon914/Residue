@@ -22,8 +22,8 @@ import retrofit2.Response;
 
 public class FindAlbumActivity extends AppCompatActivity {
 
-    AlbumAdapter adapter;
-    ItunesService service;
+    private AlbumAdapter adapter;
+    private ItunesService service;
 
 
     @BindView(R.id.recycleView) RecyclerView recyclerView;
@@ -53,21 +53,13 @@ public class FindAlbumActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(final Call<AlbumSearchResponse> call, final Throwable t) {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Error: API Request Failed - " + t;
-                    Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                    final Context context = getApplicationContext();
+                    Toast.makeText(context, R.string.io_exception, Toast.LENGTH_SHORT).show();
                 }
             });
 
         } catch (IOException e) {
-            CharSequence text = "Error: API Request Failed - " + e;
-            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
-        } catch (NullPointerException e) {
-            CharSequence text = "Error: No Text Entered - " + e;
-            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.io_exception, Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
 }
