@@ -44,7 +44,7 @@ public class FindAlbumActivity extends AppCompatActivity {
     @OnClick(R.id.search_button)
     public void onSearchClicked() {
         try {
-            service.getArtistsAlbums(editText.getText().toString()).enqueue(new Callback<AlbumSearchResponse>() {
+            service.getArtistsAlbums(editText.getText().toString(), new Callback<AlbumSearchResponse>() {
                 @Override
                 public void onResponse(final Call<AlbumSearchResponse> call, final Response<AlbumSearchResponse> response) {
                     // on background thread

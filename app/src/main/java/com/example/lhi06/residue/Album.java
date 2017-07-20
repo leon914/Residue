@@ -6,19 +6,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Album {
 
-    @SerializedName("collectionName")
     private String collectionName;
-
-    @SerializedName("artistName")
     private String artistName;
 
     @SerializedName("artworkUrl100")
-    private String artworkUrl100;
+    private String artworkUrl;
 
     public Album(@NonNull final String collectionName, @NonNull final String artistName, @NonNull final String artworkUrl100) {
         this.collectionName = collectionName;
         this.artistName = artistName;
-        this.artworkUrl100 = artworkUrl100;
+        this.artworkUrl = artworkUrl100;
     }
 
     @NonNull
@@ -33,11 +30,11 @@ public class Album {
 
     @NonNull
     String getArtworkUrl() {
-        return artworkUrl100;
+        return artworkUrl;
     }
 
     public void setArtworkUrl(@NonNull final String artworkUrl100) {
-        this.artworkUrl100 = artworkUrl100;
+        this.artworkUrl = artworkUrl100;
     }
 
     public void setArtistName(@NonNull final String artistName) {

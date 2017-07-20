@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import java.io.IOException;
 
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
@@ -25,8 +26,8 @@ import retrofit2.http.Query;
         service = retrofit.create(ItunesApi.class);
     }
 
-    Call<AlbumSearchResponse> getArtistsAlbums(@NonNull final String artistName) throws IOException {
-        return service.getArtistsAlbums(artistName);
+    void getArtistsAlbums(@NonNull final String artistName, Callback<AlbumSearchResponse> callback) throws IOException {
+        service.getArtistsAlbums(artistName).enqueue(callback);
     }
 
     interface ItunesApi {
