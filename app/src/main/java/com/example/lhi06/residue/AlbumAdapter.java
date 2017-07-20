@@ -17,7 +17,7 @@ import java.util.List;
 final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
 
-    public interface AlbumClickListener{
+    public interface AlbumClickListener {
         void onClick(@NonNull final Album album);
     }
 
@@ -34,7 +34,7 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
         notifyDataSetChanged();
     }
 
-    void setAlbumClickListener(@NonNull final AlbumClickListener clickListener){
+    void setAlbumClickListener(@NonNull final AlbumClickListener clickListener) {
         this.clickListener = clickListener;
     }
 
@@ -53,7 +53,7 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                if(clickListener != null){
+                if (clickListener != null) {
                     clickListener.onClick(albumList.get(holder.getAdapterPosition()));
                 }
             }
