@@ -2,35 +2,39 @@ package com.example.lhi06.residue;
 
 import android.support.annotation.NonNull;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Album {
 
-    private final String collectionName;
-    private final String artistName;
-    private final String artworkUrl100;
+    private String collectionName;
+    private String artistName;
 
-    public Album(@NonNull final String collectionName, @NonNull final String artistName, @NonNull final String artworkUrl100) {
+    @SerializedName("artworkUrl100")
+    private String artworkUrl;
+
+    public Album(@NonNull final String collectionName, @NonNull final String artistName, @NonNull final String artworkUrl) {
         this.collectionName = collectionName;
         this.artistName = artistName;
-        this.artworkUrl100 = artworkUrl100;
+        this.artworkUrl = artworkUrl;
     }
 
     @NonNull
-    public String getCollectionName() {
+    String getCollectionName() {
         return collectionName;
     }
 
     @NonNull
-    public String getArtistName() {
+    String getArtistName() {
         return artistName;
     }
 
     @NonNull
-    public String getArtworkUrl() {
-        return artworkUrl100;
+    String getArtworkUrl() {
+        return artworkUrl;
     }
 
-    public void setArtworkUrl(@NonNull final String artworkUrl100) {
-         this.artworkUrl100 = artworkUrl100;
+    public void setArtworkUrl(@NonNull final String artworkUrl) {
+        this.artworkUrl = artworkUrl;
     }
 
     public void setArtistName(@NonNull final String artistName) {

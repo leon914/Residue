@@ -14,18 +14,18 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
+final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
     private final Picasso picasso;
     private List<Album> albumList = new ArrayList<>();
 
-    private AlbumAdapter(@NonNull final Picasso picasso) {
+    AlbumAdapter(@NonNull final Picasso picasso) {
         this.picasso = picasso;
     }
 
-    public void setListContent(@NonNull final List<Album> albumList) {
+    void setListContent(@NonNull final List<Album> albumList) {
         this.albumList = albumList;
-        notifyItemRangeChanged(0, albumList.size());
+        notifyDataSetChanged();
     }
 
     @Override
