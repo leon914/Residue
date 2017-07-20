@@ -40,7 +40,7 @@ public class FindAlbumActivity extends AppCompatActivity {
         service = new ItunesService();
 
     }
-
+    
     @OnClick(R.id.search_button)
     public void onSearchClicked() {
         try {
