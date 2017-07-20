@@ -1,7 +1,9 @@
 package com.example.lhi06.residue;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,8 +41,17 @@ public class FindAlbumActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         service = new ItunesService();
 
+        adapter.setAlbumClickListener(new AlbumAdapter.AlbumClickListener() {
+            @Override
+            public void onClick(@NonNull final Album album) {
+                Intent i = new Intent(FindAlbumActivity.this, AlbumReviewActivity.class);
+                i.putExtra("album", album);
+                startActivity(i);
+            }
+        });
+
     }
-    
+
     @OnClick(R.id.search_button)
     public void onSearchClicked() {
         try {

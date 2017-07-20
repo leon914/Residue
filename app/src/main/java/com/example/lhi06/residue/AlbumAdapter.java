@@ -16,8 +16,14 @@ import java.util.List;
 
 final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
+
+    public interface AlbumClickListener{
+        void onClick(@NonNull final Album album);
+    }
+
     private final Picasso picasso;
     private List<Album> albumList = new ArrayList<>();
+    private AlbumClickListener clickListener;
 
     AlbumAdapter(@NonNull final Picasso picasso) {
         this.picasso = picasso;
@@ -28,17 +34,30 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
         notifyDataSetChanged();
     }
 
+    void setAlbumClickListener(@NonNull final AlbumClickListener clickListener){
+        this.clickListener = clickListener;
+    }
+
     @Override
-    public AlbumViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, @NonNull final int viewType) {
+    public AlbumViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
         return new AlbumViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final AlbumViewHolder holder, @NonNull final int position) {
+    public void onBindViewHolder(@NonNull final AlbumViewHolder holder, final int position) {
         final Album listItems = albumList.get(position);
         holder.artistName.setText(listItems.getArtistName());
         holder.albumName.setText(listItems.getCollectionName());
         picasso.load(listItems.getArtworkUrl()).into(holder.albumArt);
+
+        holder.rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                if(clickListener != null){
+                    clickListener.onClick(albumList.get(holder.getAdapterPosition()));
+                }
+            }
+        });
     }
 
     @Override
@@ -46,22 +65,18 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
         return albumList.size();
     }
 
-    class AlbumViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class AlbumViewHolder extends RecyclerView.ViewHolder {
 
+        View rootView;
         TextView artistName, albumName;
         ImageView albumArt;
 
         AlbumViewHolder(@NonNull final View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
+            rootView = itemView.findViewById(R.id.linearLayout_row);
             artistName = (TextView) itemView.findViewById(R.id.artist_name);
             albumName = (TextView) itemView.findViewById(R.id.album_name);
             albumArt = (ImageView) itemView.findViewById(R.id.album_art);
-
-        }
-
-        @Override
-        public void onClick(@NonNull final View v) {
 
         }
     }
