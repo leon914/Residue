@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -56,23 +54,18 @@ public class FindAlbumActivity extends AppCompatActivity {
 
     @OnClick(R.id.search_button)
     public void onSearchClicked() {
-        try {
-            service.getArtistsAlbums(editText.getText().toString(), new Callback<AlbumSearchResponse>() {
-                @Override
-                public void onResponse(final Call<AlbumSearchResponse> call, final Response<AlbumSearchResponse> response) {
-                    // on background thread
-                    adapter.setListContent(response.body().getResults());
-                }
+        service.getArtistsAlbums(editText.getText().toString(), new Callback<AlbumSearchResponse>() {
+            @Override
+            public void onResponse(final Call<AlbumSearchResponse> call, final Response<AlbumSearchResponse> response) {
+                // on background thread
+                adapter.setListContent(response.body().getResults());
+            }
 
-                @Override
-                public void onFailure(final Call<AlbumSearchResponse> call, final Throwable t) {
-                    final Context context = getApplicationContext();
-                    Toast.makeText(context, R.string.io_exception, Toast.LENGTH_SHORT).show();
-                }
-            });
-
-        } catch (IOException e) {
-            Toast.makeText(this, R.string.io_exception, Toast.LENGTH_SHORT).show();
-        }
+            @Override
+            public void onFailure(final Call<AlbumSearchResponse> call, final Throwable t) {
+                final Context context = getApplicationContext();
+                Toast.makeText(context, R.string.io_exception, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
