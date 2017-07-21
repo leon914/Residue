@@ -1,27 +1,29 @@
 package com.example.lhi06.residue;
 
+import android.support.annotation.NonNull;
+
 /**
  * Created by lhi06 on 20/07/2017.
  */
 
 public class AlbumReview {
 
-    Album thisAlbum;
-    int rating;
-    String review = "";
+    private Album album;
+    private int rating;
+    private String review = "";
 
-    public AlbumReview(final Album thisAlbum, final int rating, final String review) {
-        this.thisAlbum = thisAlbum;
+    public AlbumReview(@NonNull final Album thisAlbum, final int rating, @NonNull final String review) {
+        this.album = thisAlbum;
         this.rating = rating;
         this.review = review;
     }
 
     public Album getThisAlbum() {
-        return thisAlbum;
+        return album;
     }
 
     public void setThisAlbum(final Album thisAlbum) {
-        this.thisAlbum = thisAlbum;
+        this.album = thisAlbum;
     }
 
     public int getRating() {

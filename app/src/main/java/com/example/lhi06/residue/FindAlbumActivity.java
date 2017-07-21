@@ -24,12 +24,14 @@ import retrofit2.Response;
 
 public class FindAlbumActivity extends AppCompatActivity {
 
+    public final static String ALBUM_EXTRA = "com.example.lhi06.residue.ALBUM_EXTRA";
+
     private AlbumAdapter adapter;
     private ItunesService service;
 
 
-    @BindView(R.id.recycleView) RecyclerView recyclerView;
-    @BindView(R.id.request) EditText editText;
+    @BindView(R.id.recycleview_albums_findalbum) RecyclerView recyclerView;
+    @BindView(R.id.edittext_request_findalbum) EditText editText;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -44,9 +46,9 @@ public class FindAlbumActivity extends AppCompatActivity {
         adapter.setAlbumClickListener(new AlbumAdapter.AlbumClickListener() {
             @Override
             public void onClick(@NonNull final Album album) {
-                Intent i = new Intent(FindAlbumActivity.this, AlbumReviewActivity.class);
-                i.putExtra("album", album);
-                startActivity(i);
+                final Intent intent = new Intent(FindAlbumActivity.this, AlbumReviewActivity.class);
+                intent.putExtra(ALBUM_EXTRA, album);
+                startActivity(intent);
             }
         });
 

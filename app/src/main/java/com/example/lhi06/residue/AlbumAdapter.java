@@ -16,11 +16,6 @@ import java.util.List;
 
 final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
-
-    public interface AlbumClickListener {
-        void onClick(@NonNull final Album album);
-    }
-
     private final Picasso picasso;
     private List<Album> albumList = new ArrayList<>();
     private AlbumClickListener clickListener;
@@ -85,6 +80,10 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
         albumList.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(0, albumList.size());
+    }
+
+    public interface AlbumClickListener {
+        void onClick(@NonNull final Album album);
     }
 
 }

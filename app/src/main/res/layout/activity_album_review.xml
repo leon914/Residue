@@ -1,48 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="1"
-    android:background="@drawable/my_recycleview_element_border"
-    android:padding="@dimen/album_art_border">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:weightSum="1"
+              android:background="@drawable/album_border"
+              android:padding="@dimen/album_art_border">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/album_art_size"
         android:orientation="vertical"
-        android:background="@drawable/my_recycleview_element_border"
+        android:background="@drawable/album_border"
         android:padding="@dimen/album_info_border">
 
         <TextView
-            android:id="@+id/album_name_review"
+            android:id="@+id/textview_album_name_review"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="36 Chambers"
             android:textColor="@android:color/black"
             android:textSize="@dimen/list_font_size"
             android:textStyle="bold"
-            android:padding="@dimen/album_art_border"/>
+            android:padding="@dimen/album_art_border"
+            tools:text="Album Name"/>
 
         <TextView
-            android:id="@+id/artist_name_review"
+            android:id="@+id/textview_artist_name_review"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="left"
             android:layout_weight="0.5"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="Wu Tang Clan"
             android:textColor="@android:color/white"
             android:textSize="@dimen/list_font_size"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Artist Name"/>
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/album_art_review"
+        android:id="@+id/imageview_album_art_review"
         android:layout_height="@dimen/album_art_size"
         android:layout_width="@dimen/album_art_size"
         android:layout_alignParentEnd="true"
@@ -55,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/my_recycleview_element_border"
+        android:background="@drawable/album_border"
         android:padding="@dimen/album_info_border">
 
         <LinearLayout
@@ -64,7 +65,6 @@
             android:orientation="vertical"
             android:background="@color/colorPrimary">
             <RatingBar
-                android:layout_below="@+id/rate_me"
                 android:id="@+id/ratingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/colorPrimary">
 

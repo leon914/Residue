@@ -23,7 +23,7 @@
             android:name=".FindAlbumActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".AlbumReviewActivity"
-            android:parentActivityName=".FindAlbumActivity"></activity>
+            android:parentActivityName=".FindAlbumActivity"/>
 
     </application>
 

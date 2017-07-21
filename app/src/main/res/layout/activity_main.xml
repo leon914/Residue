@@ -7,7 +7,7 @@
     tools:context="com.example.lhi06.residue.MainActivity">
 
     <EditText
-        android:id="@+id/request"
+        android:id="@+id/edittext_request_findalbum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/search_box"
@@ -24,7 +24,7 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/add_review"
+        android:id="@+id/floatingbutton_addreview_mainactivity"
         android:layout_width="@dimen/float_button_width"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"

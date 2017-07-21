@@ -14,7 +14,7 @@ public class Album implements Parcelable {
     @SerializedName("artworkUrl100")
     private String artworkUrl;
 
-    public Album(Parcel in) {
+    Album(@NonNull final Parcel in) {
         collectionName = in.readString();
         artistName = in.readString();
         artworkUrl = in.readString();
@@ -59,7 +59,7 @@ public class Album implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(final Parcel dest, final int flags) {
+    public void writeToParcel(@NonNull final Parcel dest, final int flags) {
         dest.writeString(collectionName);
         dest.writeString(artistName);
         dest.writeString(artworkUrl);
@@ -67,11 +67,11 @@ public class Album implements Parcelable {
 
     public static final Parcelable.Creator<Album> CREATOR = new Parcelable.Creator<Album>() {
 
-        public Album createFromParcel(Parcel in) {
+        public Album createFromParcel(@NonNull final Parcel in) {
             return new Album(in);
         }
 
-        public Album[] newArray(int size) {
+        public Album[] newArray(final int size) {
             return new Album[size];
         }
     };
