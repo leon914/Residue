@@ -52,17 +52,15 @@
         android:src="@mipmap/ic_launcher"
         android:layout_gravity="center" />
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@drawable/album_border"
         android:padding="@dimen/album_info_border">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:background="@color/colorPrimary">
             <RatingBar
                 android:id="@+id/ratingBar"
@@ -72,22 +70,15 @@
                 android:stepSize="1.0"
                 android:layout_gravity="center"
                 android:background="@color/colorPrimary" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary">
+        </FrameLayout>
+    </FrameLayout>
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:hint="@string/review_hint"
-        android:gravity="top|left"/>
-
-        </LinearLayout>
+        android:gravity="top|left"
+        android:background="@color/colorPrimary"/>
 
 </LinearLayout>

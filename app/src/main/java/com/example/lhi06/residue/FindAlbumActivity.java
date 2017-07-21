@@ -28,8 +28,8 @@ public class FindAlbumActivity extends AppCompatActivity {
     private ItunesService service;
 
 
-    @BindView(R.id.recycleview_albums_findalbum) RecyclerView recyclerView;
-    @BindView(R.id.edittext_request_findalbum) EditText editText;
+    @BindView(R.id.recycleview_albums) RecyclerView recyclerView;
+    @BindView(R.id.edittext_artist_name) EditText artistNameEditText;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class FindAlbumActivity extends AppCompatActivity {
 
     @OnClick(R.id.search_button)
     public void onSearchClicked() {
-        service.getArtistsAlbums(editText.getText().toString(), new Callback<AlbumSearchResponse>() {
+        service.getArtistsAlbums(artistNameEditText.getText().toString(), new Callback<AlbumSearchResponse>() {
             @Override
             public void onResponse(final Call<AlbumSearchResponse> call, final Response<AlbumSearchResponse> response) {
                 // on background thread

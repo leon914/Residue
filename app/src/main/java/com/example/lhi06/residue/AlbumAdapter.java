@@ -17,7 +17,7 @@ import java.util.List;
 final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
     private final Picasso picasso;
-    private List<Album> albumList = new ArrayList<>();
+    private List<Album> albums = new ArrayList<>();
     private AlbumClickListener clickListener;
 
     AlbumAdapter(@NonNull final Picasso picasso) {
@@ -25,7 +25,7 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
     }
 
     void setListContent(@NonNull final List<Album> albumList) {
-        this.albumList = albumList;
+        this.albums = albumList;
         notifyDataSetChanged();
     }
 
@@ -40,7 +40,7 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final AlbumViewHolder holder, final int position) {
-        final Album listItems = albumList.get(position);
+        final Album listItems = albums.get(position);
         holder.artistName.setText(listItems.getArtistName());
         holder.albumName.setText(listItems.getCollectionName());
         picasso.load(listItems.getArtworkUrl()).into(holder.albumArt);
@@ -49,7 +49,7 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
             @Override
             public void onClick(final View v) {
                 if (clickListener != null) {
-                    clickListener.onClick(albumList.get(holder.getAdapterPosition()));
+                    clickListener.onClick(albums.get(holder.getAdapterPosition()));
                 }
             }
         });
@@ -57,7 +57,7 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
 
     @Override
     public int getItemCount() {
-        return albumList.size();
+        return albums.size();
     }
 
     class AlbumViewHolder extends RecyclerView.ViewHolder {
@@ -77,9 +77,9 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
     }
 
     public void removeAt(@NonNull final int position) {
-        albumList.remove(position);
+        albums.remove(position);
         notifyItemRemoved(position);
-        notifyItemRangeChanged(0, albumList.size());
+        notifyItemRangeChanged(0, albums.size());
     }
 
     public interface AlbumClickListener {
