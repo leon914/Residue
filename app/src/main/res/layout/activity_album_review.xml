@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:background="@drawable/album_border"
+              android:padding="@dimen/album_art_border">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_art_size"
+        android:orientation="vertical"
+        android:background="@drawable/album_border">
+
+        <TextView
+            android:id="@+id/textview_album_name_review"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/list_font_size"
+            android:textStyle="bold"
+            tools:text="Album Name"/>
+
+        <TextView
+            android:id="@+id/textview_artist_name_review"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/list_font_size"
+            android:textStyle="bold"
+            tools:text="Artist Name"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageview_album_art_review"
+        android:layout_height="@dimen/album_art_size"
+        android:layout_width="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center"
+        android:background="@android:color/white"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/album_border">
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1.0"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/review_hint"
+        android:gravity="top|left"
+        android:background="@drawable/album_border"
+        android:padding="@dimen/album_info_border"/>
+
+</LinearLayout>

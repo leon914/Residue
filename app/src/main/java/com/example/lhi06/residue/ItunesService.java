@@ -2,8 +2,6 @@ package com.example.lhi06.residue;
 
 import android.support.annotation.NonNull;
 
-import java.io.IOException;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -26,7 +24,7 @@ import retrofit2.http.Query;
         service = retrofit.create(ItunesApi.class);
     }
 
-    void getArtistsAlbums(@NonNull final String artistName, Callback<AlbumSearchResponse> callback) throws IOException {
+    void getArtistsAlbums(@NonNull final String artistName, Callback<AlbumSearchResponse> callback) {
         service.getArtistsAlbums(artistName).enqueue(callback);
     }
 

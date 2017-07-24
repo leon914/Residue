@@ -14,62 +14,70 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
     private final Picasso picasso;
-    private List<Album> albumList = new ArrayList<>();
+    private List<Album> albums = new ArrayList<>();
+    private AlbumClickListener clickListener;
 
     AlbumAdapter(@NonNull final Picasso picasso) {
         this.picasso = picasso;
     }
 
-    void setListContent(@NonNull final List<Album> albumList) {
-        this.albumList = albumList;
+    void setListContent(@NonNull final List<Album> albums) {
+        this.albums = albums;
         notifyDataSetChanged();
     }
 
+    void setAlbumClickListener(@NonNull final AlbumClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
+
     @Override
-    public AlbumViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, @NonNull final int viewType) {
+    public AlbumViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
         return new AlbumViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final AlbumViewHolder holder, @NonNull final int position) {
-        final Album listItems = albumList.get(position);
+    public void onBindViewHolder(@NonNull final AlbumViewHolder holder, final int position) {
+        final Album listItems = albums.get(position);
         holder.artistName.setText(listItems.getArtistName());
         holder.albumName.setText(listItems.getCollectionName());
         picasso.load(listItems.getArtworkUrl()).into(holder.albumArt);
+
+        holder.rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                if (clickListener != null) {
+                    clickListener.onClick(albums.get(holder.getAdapterPosition()));
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return albumList.size();
+        return albums.size();
     }
 
-    class AlbumViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class AlbumViewHolder extends RecyclerView.ViewHolder {
 
-        TextView artistName, albumName;
-        ImageView albumArt;
+        @BindView(R.id.linearLayout_row) View rootView;
+        @BindView(R.id.artist_name) TextView artistName;
+        @BindView(R.id.album_name) TextView albumName;
+        @BindView(R.id.album_art) ImageView albumArt;
 
         AlbumViewHolder(@NonNull final View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
-            artistName = (TextView) itemView.findViewById(R.id.artist_name);
-            albumName = (TextView) itemView.findViewById(R.id.album_name);
-            albumArt = (ImageView) itemView.findViewById(R.id.album_art);
-
-        }
-
-        @Override
-        public void onClick(@NonNull final View v) {
-
+            ButterKnife.bind(this, itemView);
         }
     }
 
-    public void removeAt(@NonNull final int position) {
-        albumList.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeChanged(0, albumList.size());
+    interface AlbumClickListener {
+        void onClick(@NonNull final Album album);
     }
 
 }

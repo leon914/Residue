@@ -3,4 +3,5 @@
     <string name="search_box">Enter an Artists name...</string>
     <string name="search_button">Search</string>
     <string name="io_exception">Error: API Request Failed -</string>
+    <string name="review_hint">Write your review here...</string>
 </resources>

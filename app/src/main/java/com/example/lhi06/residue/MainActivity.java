@@ -15,10 +15,8 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.add_review)
-    FloatingActionButton addReviewButton;
-    @BindView(R.id.request)
-    EditText searchField;
+    @BindView(R.id.floatingbutton_addreview) FloatingActionButton addReviewButton;
+    @BindView(R.id.edittext_artist_name) EditText searchField;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
