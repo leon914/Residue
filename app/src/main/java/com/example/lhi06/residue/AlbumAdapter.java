@@ -79,7 +79,6 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
     public void removeAt(@NonNull final int position) {
         albums.remove(position);
         notifyItemRemoved(position);
-        notifyItemRangeChanged(0, albums.size());
     }
 
     public interface AlbumClickListener {
