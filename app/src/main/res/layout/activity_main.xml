@@ -24,7 +24,7 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingbutton_addreview_mainactivity"
+        android:id="@+id/floatingbutton_addreview"
         android:layout_width="@dimen/float_button_width"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"

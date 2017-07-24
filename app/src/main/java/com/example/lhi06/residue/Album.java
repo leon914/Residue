@@ -20,12 +20,6 @@ public class Album implements Parcelable {
         artworkUrl = in.readString();
     }
 
-    public Album(@NonNull final String collectionName, @NonNull final String artistName, @NonNull final String artworkUrl) {
-        this.collectionName = collectionName;
-        this.artistName = artistName;
-        this.artworkUrl = artworkUrl;
-    }
-
     @NonNull
     String getCollectionName() {
         return collectionName;
@@ -39,18 +33,6 @@ public class Album implements Parcelable {
     @NonNull
     String getArtworkUrl() {
         return artworkUrl;
-    }
-
-    public void setArtworkUrl(@NonNull final String artworkUrl) {
-        this.artworkUrl = artworkUrl;
-    }
-
-    public void setArtistName(@NonNull final String artistName) {
-        this.artistName = artistName;
-    }
-
-    public void setCollectionName(@NonNull final String collectionName) {
-        this.collectionName = collectionName;
     }
 
     @Override

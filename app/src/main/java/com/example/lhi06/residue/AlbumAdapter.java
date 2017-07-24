@@ -14,6 +14,9 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
     private final Picasso picasso;
@@ -62,26 +65,18 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
 
     class AlbumViewHolder extends RecyclerView.ViewHolder {
 
-        View rootView;
-        TextView artistName, albumName;
-        ImageView albumArt;
+        @BindView(R.id.linearLayout_row) View rootView;
+        @BindView(R.id.artist_name) TextView artistName;
+        @BindView(R.id.album_name) TextView albumName;
+        @BindView(R.id.album_art) ImageView albumArt;
 
         AlbumViewHolder(@NonNull final View itemView) {
             super(itemView);
-            rootView = itemView.findViewById(R.id.linearLayout_row);
-            artistName = (TextView) itemView.findViewById(R.id.artist_name);
-            albumName = (TextView) itemView.findViewById(R.id.album_name);
-            albumArt = (ImageView) itemView.findViewById(R.id.album_art);
-
+            ButterKnife.bind(this, itemView);
         }
     }
 
-    public void removeAt(@NonNull final int position) {
-        albums.remove(position);
-        notifyItemRemoved(position);
-    }
-
-    public interface AlbumClickListener {
+    interface AlbumClickListener {
         void onClick(@NonNull final Album album);
     }
 

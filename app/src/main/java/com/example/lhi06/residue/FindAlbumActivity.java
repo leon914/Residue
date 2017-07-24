@@ -1,6 +1,5 @@
 package com.example.lhi06.residue;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -63,8 +62,7 @@ public class FindAlbumActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(final Call<AlbumSearchResponse> call, final Throwable t) {
-                final Context context = getApplicationContext();
-                Toast.makeText(context, R.string.io_exception, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.io_exception, Toast.LENGTH_SHORT).show();
             }
         });
     }
