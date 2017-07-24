@@ -21,24 +21,12 @@ public class AlbumReview {
     public Album getThisAlbum() {
         return album;
     }
-
-    public void setThisAlbum(final Album thisAlbum) {
-        this.album = thisAlbum;
-    }
-
+    
     public int getRating() {
         return rating;
     }
 
-    public void setRating(final int rating) {
-        this.rating = rating;
-    }
-
     public String getReview() {
         return review;
-    }
-
-    public void setReview(final String review) {
-        this.review = review;
     }
 }
