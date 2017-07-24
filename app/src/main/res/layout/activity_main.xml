@@ -22,6 +22,14 @@
         android:background="@color/colorPrimary"
         android:textColor="@android:color/white"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleview_reviews"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_below="@+id/search_button">
+    </android.support.v7.widget.RecyclerView>
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingbutton_addreview"
