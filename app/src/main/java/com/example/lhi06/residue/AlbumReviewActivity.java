@@ -1,5 +1,6 @@
 package com.example.lhi06.residue;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -48,6 +49,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
             public void onClick(final View v) {
                 reviews.add(new AlbumReview(album, Float.floatToIntBits(ratingBar.getRating()), reviewText.getText().toString()));
                 saveReviews.saveData(reviews, getApplicationContext());
+                startActivity(new Intent(AlbumReviewActivity.this, MainActivity.class));
             }
         });
     }
