@@ -35,11 +35,11 @@ public class SaveState implements Serializable {
             try {
                 File outFile = new File(Environment.getExternalStorageDirectory(), "albumReviews.data");
                 out = new ObjectOutputStream(new FileOutputStream(outFile));
-                out.writeObject(instance);
+                out.writeObject(reviews);
                 out.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                Toast.makeText(context, R.string.load_exception, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.save_exception, Toast.LENGTH_SHORT).show();
             }
     }
 

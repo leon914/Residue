@@ -28,7 +28,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
     @BindView(R.id.floatingbutton_savereview) FloatingActionButton saveReviewButton;
 
     SaveState state;
-    List<AlbumReview>reviews;
+    List<AlbumReview> reviews;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -44,7 +44,6 @@ public class AlbumReviewActivity extends AppCompatActivity {
         final Album album = getIntent().getExtras().getParcelable(FindAlbumActivity.ALBUM_EXTRA);
         albumName.setText(album.getCollectionName());
         artistName.setText(album.getArtistName());
-
         Picasso.with(this).load(album.getArtworkUrl()).into(albumArtwork);
         saveReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
