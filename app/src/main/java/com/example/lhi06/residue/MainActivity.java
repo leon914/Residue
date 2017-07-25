@@ -22,14 +22,13 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    SaveState state;
-    ReviewAdapter adapter;
+    SaveReviews state;
+    private ReviewAdapter adapter;
+    private List<AlbumReview> reviews;
 
     @BindView(R.id.floatingbutton_addreview) FloatingActionButton addReviewButton;
     @BindView(R.id.edittext_artist_name) EditText searchField;
     @BindView(R.id.recycleview_reviews) RecyclerView recyclerView;
-
-    List<AlbumReview> reviews;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -41,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         state.getInstance();
         reviews = state.loadData(this);
+        //For New Users
         if (reviews == null) {
             reviews = new ArrayList<>();
             state.saveData(reviews, this);

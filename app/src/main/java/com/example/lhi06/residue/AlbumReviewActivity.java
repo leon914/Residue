@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -27,7 +26,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
     @BindView(R.id.reviewText) EditText reviewText;
     @BindView(R.id.floatingbutton_savereview) FloatingActionButton saveReviewButton;
 
-    SaveState state;
+    SaveReviews saveReviews;
     List<AlbumReview> reviews;
 
     @Override
@@ -35,21 +34,20 @@ public class AlbumReviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album_review);
         ButterKnife.bind(this);
-        state.getInstance();
-        reviews = state.loadData(this);
-        if (reviews == null) {
-            reviews = new ArrayList<>();
-            state.saveData(reviews, this);
-        }
+
+        saveReviews.getInstance();
+        reviews = saveReviews.loadData(this);
+
         final Album album = getIntent().getExtras().getParcelable(FindAlbumActivity.ALBUM_EXTRA);
         albumName.setText(album.getCollectionName());
         artistName.setText(album.getArtistName());
         Picasso.with(this).load(album.getArtworkUrl()).into(albumArtwork);
+
         saveReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 reviews.add(new AlbumReview(album, Float.floatToIntBits(ratingBar.getRating()), reviewText.getText().toString()));
-                state.saveData(reviews, getApplicationContext());
+                saveReviews.saveData(reviews, getApplicationContext());
             }
         });
     }
