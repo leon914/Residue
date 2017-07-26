@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
 public class AlbumReview {
 
     private Album album;
-    private int rating;
+    private int rating = 0;
     private String review = "";
 
     public AlbumReview(@NonNull final Album thisAlbum, final int rating, @NonNull final String review) {

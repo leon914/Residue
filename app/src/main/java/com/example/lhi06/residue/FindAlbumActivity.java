@@ -10,8 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -36,7 +34,7 @@ public class FindAlbumActivity extends AppCompatActivity {
         setContentView(R.layout.activity_find_album);
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AlbumAdapter(Picasso.with(this));
+        adapter = new AlbumAdapter();
         recyclerView.setAdapter(adapter);
         service = new ItunesService();
 
