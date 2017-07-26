@@ -50,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.search_button)
     public void onSearchClicked(@NonNull final View view) {
         //TODO: Code for searching for reviews done
-        //String artistNameTextView = editText1.getText().toString();
-        //handler.urlBuilder(artistNameTextView);
+        
     }
 
 }
