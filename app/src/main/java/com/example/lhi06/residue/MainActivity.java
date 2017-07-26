@@ -11,9 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -22,7 +19,6 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    SaveReviews state;
     private ReviewAdapter adapter;
     private List<AlbumReview> reviews;
 
@@ -36,15 +32,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ReviewAdapter(Picasso.with(this));
+        adapter = new ReviewAdapter();
         recyclerView.setAdapter(adapter);
-        state.getInstance();
-        reviews = state.loadData(this);
-        //For New Users
-        if (reviews == null) {
-            reviews = new ArrayList<>();
-            state.saveData(reviews, this);
-        }
+        reviews = SaveReviews.loadData(this);
         adapter.setListContent(reviews);
         //TODO: preview old review onclick listener here
 
@@ -60,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.search_button)
     public void onSearchClicked(@NonNull final View view) {
         //TODO: Code for searching for reviews done
-        //String artistName = editText1.getText().toString();
-        //handler.urlBuilder(artistName);
+        //String artistNameTextView = editText1.getText().toString();
+        //handler.urlBuilder(artistNameTextView);
     }
 
 }

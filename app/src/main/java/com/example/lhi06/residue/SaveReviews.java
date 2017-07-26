@@ -16,31 +16,25 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SaveReviews {
+final class SaveReviews {
 
     private final static String FILENAME = "albumReviews.json";
-    private final static Gson gson = new Gson();
-    private final static Type type = new TypeToken<List<AlbumReview>>() {}.getType();
-    private static SaveReviews instance = null;
+    private final static Gson GSON = new Gson();
+    private final static Type TYPE_OF_LIST = new TypeToken<List<AlbumReview>>() {}.getType();
 
-    public static SaveReviews getInstance() {
-        if (instance == null) {
-            instance = new SaveReviews();
-        }
-        return instance;
-    }
+    private SaveReviews(){}
 
     public static String toJsonString(@NonNull final List<AlbumReview> reviews) {
-        return gson.toJson(reviews, type);
+        return GSON.toJson(reviews, TYPE_OF_LIST);
     }
 
-    public static List<AlbumReview> toListOfReviews(final String jsonString) {
-        return gson.fromJson(jsonString, type);
+    public static List<AlbumReview> toListOfReviews(@NonNull final String jsonString) {
+        return GSON.fromJson(jsonString, TYPE_OF_LIST);
     }
 
-    public static void saveData(final List<AlbumReview> reviews, final Context context) {
+    public static void saveData(@NonNull final List<AlbumReview> reviews, @NonNull final Context context) {
         try {
-            final FileOutputStream streamOut = context.openFileOutput(FILENAME, context.MODE_PRIVATE);
+            final FileOutputStream streamOut = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
             streamOut.write(toJsonString(reviews).getBytes());
             streamOut.close();
         } catch (IOException e) {
@@ -49,7 +43,7 @@ public class SaveReviews {
         }
     }
 
-    public static List<AlbumReview> loadData(final Context context) {
+    public static List<AlbumReview> loadData(@NonNull final Context context) {
         List<AlbumReview> reviews = new ArrayList<>();
         try {
             final FileInputStream streamIn = context.openFileInput(FILENAME);
@@ -61,7 +55,7 @@ public class SaveReviews {
             }
             reviews = toListOfReviews(jsonBuilder.toString());
             streamIn.close();
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
             Toast.makeText(context, R.string.load_exception, Toast.LENGTH_SHORT).show();
         }

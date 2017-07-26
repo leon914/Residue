@@ -1,6 +1,6 @@
 package com.example.lhi06.residue;
 
-import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -27,29 +27,32 @@ public class AlbumReviewActivity extends AppCompatActivity {
     @BindView(R.id.reviewText) EditText reviewText;
     @BindView(R.id.floatingbutton_savereview) FloatingActionButton saveReviewButton;
 
-    SaveReviews saveReviews;
-    List<AlbumReview> reviews;
+    private List<AlbumReview> reviews;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album_review);
         ButterKnife.bind(this);
-
-        saveReviews.getInstance();
-        reviews = saveReviews.loadData(this);
+        reviews = SaveReviews.loadData(this);
 
         final Album album = getIntent().getExtras().getParcelable(FindAlbumActivity.ALBUM_EXTRA);
-        albumName.setText(album.getCollectionName());
-        artistName.setText(album.getArtistName());
-        Picasso.with(this).load(album.getArtworkUrl()).into(albumArtwork);
-
+        if (album != null) {
+            albumName.setText(album.getCollectionName());
+            artistName.setText(album.getArtistName());
+            Picasso.with(this).load(album.getArtworkUrl()).into(albumArtwork);
+        }
         saveReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                reviews.add(new AlbumReview(album, Float.floatToIntBits(ratingBar.getRating()), reviewText.getText().toString()));
-                saveReviews.saveData(reviews, getApplicationContext());
-                startActivity(new Intent(AlbumReviewActivity.this, MainActivity.class));
+
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        reviews.add(new AlbumReview(album, Float.floatToIntBits(ratingBar.getRating()), reviewText.getText().toString()));
+                        SaveReviews.saveData(reviews, getApplicationContext());                    }
+                });
+                finish();
             }
         });
     }

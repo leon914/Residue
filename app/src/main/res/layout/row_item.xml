@@ -9,7 +9,7 @@
     android:padding="@dimen/album_art_border">
 
     <ImageView
-        android:id="@+id/album_art"
+        android:id="@+id/imageView_albumArt"
         android:layout_height="match_parent"
         android:layout_width="@dimen/album_art_size"
         android:layout_alignParentEnd="true"
@@ -25,7 +25,7 @@
         android:padding="@dimen/album_info_border">
 
         <TextView
-            android:id="@+id/album_name"
+            android:id="@+id/textView_albumName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
@@ -36,7 +36,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/artist_name"
+            android:id="@+id/textView_artistName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="left"

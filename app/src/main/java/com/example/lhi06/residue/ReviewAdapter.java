@@ -22,13 +22,8 @@ import butterknife.ButterKnife;
 
 final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder> {
 
-    private final Picasso picasso;
     private List<AlbumReview> reviews = new ArrayList<>();
     private ReviewClickListener clickListener;
-
-    ReviewAdapter(@NonNull final Picasso picasso) {
-        this.picasso = picasso;
-    }
 
     void setListContent(@NonNull final List<AlbumReview> reviews) {
         this.reviews = reviews;
@@ -49,7 +44,7 @@ final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewH
         final AlbumReview review = reviews.get(position);
         holder.artistName.setText(review.getThisAlbum().getArtistName());
         holder.albumName.setText(review.getThisAlbum().getCollectionName());
-        picasso.load(review.getThisAlbum().getArtworkUrl()).into(holder.albumArt);
+        Picasso.with(holder.albumArt.getContext()).load(review.getThisAlbum().getArtworkUrl()).into(holder.albumArt);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,9 +64,9 @@ final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewH
     class ReviewViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.linearLayout_row) View rootView;
-        @BindView(R.id.artist_name) TextView artistName;
-        @BindView(R.id.album_name) TextView albumName;
-        @BindView(R.id.album_art) ImageView albumArt;
+        @BindView(R.id.textView_artistName) TextView artistName;
+        @BindView(R.id.textView_albumName) TextView albumName;
+        @BindView(R.id.imageView_albumArt) ImageView albumArt;
 
         ReviewViewHolder(@NonNull final View itemView) {
             super(itemView);

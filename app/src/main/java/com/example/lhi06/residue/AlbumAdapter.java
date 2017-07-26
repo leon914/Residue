@@ -19,13 +19,8 @@ import butterknife.ButterKnife;
 
 final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
-    private final Picasso picasso;
     private List<Album> albums = new ArrayList<>();
     private AlbumClickListener clickListener;
-
-    AlbumAdapter(@NonNull final Picasso picasso) {
-        this.picasso = picasso;
-    }
 
     void setListContent(@NonNull final List<Album> albums) {
         this.albums = albums;
@@ -44,9 +39,9 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
     @Override
     public void onBindViewHolder(@NonNull final AlbumViewHolder holder, final int position) {
         final Album listItems = albums.get(position);
-        holder.artistName.setText(listItems.getArtistName());
-        holder.albumName.setText(listItems.getCollectionName());
-        picasso.load(listItems.getArtworkUrl()).into(holder.albumArt);
+        holder.artistNameTextView.setText(listItems.getArtistName());
+        holder.albumNameTextView.setText(listItems.getCollectionName());
+        Picasso.with(holder.albumArtImageView.getContext()).load(listItems.getArtworkUrl()).into(holder.albumArtImageView);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,9 +61,9 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
     class AlbumViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.linearLayout_row) View rootView;
-        @BindView(R.id.artist_name) TextView artistName;
-        @BindView(R.id.album_name) TextView albumName;
-        @BindView(R.id.album_art) ImageView albumArt;
+        @BindView(R.id.textView_artistName) TextView artistNameTextView;
+        @BindView(R.id.textView_albumName) TextView albumNameTextView;
+        @BindView(R.id.imageView_albumArt) ImageView albumArtImageView;
 
         AlbumViewHolder(@NonNull final View itemView) {
             super(itemView);
