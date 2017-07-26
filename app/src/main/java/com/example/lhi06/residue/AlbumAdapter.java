@@ -61,9 +61,9 @@ final class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHold
     class AlbumViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.linearLayout_row) View rootView;
-        @BindView(R.id.textView_artistName) TextView artistNameTextView;
-        @BindView(R.id.textView_albumName) TextView albumNameTextView;
-        @BindView(R.id.imageView_albumArt) ImageView albumArtImageView;
+        @BindView(R.id.textview_artist_name) TextView artistNameTextView;
+        @BindView(R.id.textview_album_name) TextView albumNameTextView;
+        @BindView(R.id.imageview_album_art) ImageView albumArtImageView;
 
         AlbumViewHolder(@NonNull final View itemView) {
             super(itemView);

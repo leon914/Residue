@@ -45,7 +45,6 @@ public class AlbumReviewActivity extends AppCompatActivity {
         saveReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-
                 AsyncTask.execute(new Runnable() {
                     @Override
                     public void run() {

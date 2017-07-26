@@ -16,10 +16,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by lhi06 on 24/07/2017.
- */
-
 final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder> {
 
     private List<AlbumReview> reviews = new ArrayList<>();
@@ -64,9 +60,9 @@ final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewH
     class ReviewViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.linearLayout_row) View rootView;
-        @BindView(R.id.textView_artistName) TextView artistName;
-        @BindView(R.id.textView_albumName) TextView albumName;
-        @BindView(R.id.imageView_albumArt) ImageView albumArt;
+        @BindView(R.id.textview_artist_name) TextView artistName;
+        @BindView(R.id.textview_album_name) TextView albumName;
+        @BindView(R.id.imageview_album_art) ImageView albumArt;
 
         ReviewViewHolder(@NonNull final View itemView) {
             super(itemView);

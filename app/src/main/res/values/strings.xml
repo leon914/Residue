@@ -7,4 +7,6 @@
     <string name="load_exception">Error: Loading reviews failed -</string>
     <string name="save_exception">Error: Saving reviews Failed -</string>
     <string name="review_hint">Write your review here...</string>
+    <string name="placeholder_artist_name">Wu Tang Clan</string>
+    <string name="placeholder_album_name">36 Chambers</string>
 </resources>
