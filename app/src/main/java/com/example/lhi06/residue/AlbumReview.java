@@ -4,11 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
-/**
- * Created by lhi06 on 20/07/2017.
- */
-
-public class AlbumReview implements Parcelable{
+public class AlbumReview implements Parcelable {
 
     private Album album;
     private float rating;

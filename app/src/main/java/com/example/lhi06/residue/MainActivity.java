@@ -19,7 +19,7 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static String REVIEW_EXTRA = "com.example.lhi06.residue.REVIEW_EXTRA";
+    public static final String REVIEW_EXTRA = "com.example.lhi06.residue.REVIEW_EXTRA";
 
     private ReviewAdapter adapter;
     private List<AlbumReview> reviews;
