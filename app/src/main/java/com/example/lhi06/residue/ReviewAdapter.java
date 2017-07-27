@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -44,21 +43,7 @@ final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewH
         holder.albumName.setText(review.getThisAlbum().getCollectionName());
         Picasso.with(holder.albumArt.getContext()).load(review.getThisAlbum().getArtworkUrl()).into(holder.albumArt);
 
-        holder.albumArt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                clickListener.onClick(reviews.get(holder.getAdapterPosition()));
-            }
-        });
-
-        holder.artistName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                clickListener.onClick(reviews.get(holder.getAdapterPosition()));
-            }
-        });
-
-        holder.albumName.setOnClickListener(new View.OnClickListener() {
+        holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 clickListener.onClick(reviews.get(holder.getAdapterPosition()));
@@ -82,7 +67,7 @@ final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewH
 
     class ReviewViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.review_preview_row) LinearLayout rootView;
+        @BindView(R.id.review_preview_row) View rootView;
         @BindView(R.id.textview_artist_name) TextView artistName;
         @BindView(R.id.textview_album_name) TextView albumName;
         @BindView(R.id.imageview_album_art) ImageView albumArt;

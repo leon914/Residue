@@ -11,8 +11,7 @@
     <ImageView
         android:id="@+id/imageview_album_art"
         android:layout_height="match_parent"
-        android:layout_width="@dimen/album_art_size"
-        android:src="@mipmap/ic_launcher"/>
+        android:layout_width="@dimen/album_art_size"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,12 +37,13 @@
 
             <Button
                 android:id="@+id/button_delete"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
+                android:layout_width="@dimen/delete_button_size"
+                android:layout_height="@dimen/delete_button_size"
+                android:text="@string/delete_button_text"
                 android:layout_alignParentTop="true"
-                android:text="X"/>
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:backgroundTint="@color/colourSecondary"/>
         </RelativeLayout>
         <TextView
             android:id="@+id/textview_artist_name"
