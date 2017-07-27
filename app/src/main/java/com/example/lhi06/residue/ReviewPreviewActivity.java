@@ -14,9 +14,9 @@ import butterknife.ButterKnife;
 
 public class ReviewPreviewActivity extends AppCompatActivity {
 
-    @BindView(R.id.textview_album_name_review) TextView albumNameTextView;
-    @BindView(R.id.textview_artist_name_review) TextView artistNameTextView;
-    @BindView(R.id.imageview_album_art_review) ImageView albumArtworkTextView;
+    @BindView(R.id.textview_album_name) TextView albumNameTextView;
+    @BindView(R.id.textview_artist_name) TextView artistNameTextView;
+    @BindView(R.id.imageview_album_art) ImageView albumArtworkTextView;
     @BindView(R.id.ratingbar_album_rating) RatingBar reviewRatingBar;
     @BindView(R.id.edittext_written_review) TextView reviewEditText;
 

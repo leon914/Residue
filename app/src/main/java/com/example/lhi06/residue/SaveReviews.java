@@ -24,11 +24,11 @@ final class SaveReviews {
 
     private SaveReviews() {}
 
-    public static String toJsonString(@NonNull final List<AlbumReview> reviews) {
+    private static String toJsonString(@NonNull final List<AlbumReview> reviews) {
         return GSON.toJson(reviews, TYPE_OF_LIST);
     }
 
-    public static List<AlbumReview> toListOfReviews(@NonNull final String jsonString) {
+    private static List<AlbumReview> toListOfReviews(@NonNull final String jsonString) {
         return GSON.fromJson(jsonString, TYPE_OF_LIST);
     }
 

@@ -20,9 +20,9 @@ import butterknife.ButterKnife;
 
 public class AlbumReviewActivity extends AppCompatActivity {
 
-    @BindView(R.id.textview_album_name_review) TextView albumNameTextView;
-    @BindView(R.id.textview_artist_name_review) TextView artistNameTextView;
-    @BindView(R.id.imageview_album_art_review) ImageView albumArtworkImageView;
+    @BindView(R.id.textview_album_name) TextView albumNameTextView;
+    @BindView(R.id.textview_artist_name) TextView artistNameTextView;
+    @BindView(R.id.imageview_album_art) ImageView albumArtworkImageView;
     @BindView(R.id.ratingbar_album_rating) RatingBar reviewRatingBar;
     @BindView(R.id.edittext_written_review) EditText reviewEditText;
     @BindView(R.id.floatingbutton_save_review) FloatingActionButton saveReviewButton;
@@ -41,19 +41,21 @@ public class AlbumReviewActivity extends AppCompatActivity {
             albumNameTextView.setText(album.getCollectionName());
             artistNameTextView.setText(album.getArtistName());
             Picasso.with(this).load(album.getArtworkUrl()).into(albumArtworkImageView);
+
+            saveReviewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View v) {
+                    AsyncTask.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            reviews.add(new AlbumReview(album, reviewRatingBar.getRating(), reviewEditText.getText().toString()));
+                            SaveReviews.saveData(reviews, getApplicationContext());
+                        }
+                    });
+                    finish();
+                }
+            });
         }
-        saveReviewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                AsyncTask.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        reviews.add(new AlbumReview(album, reviewRatingBar.getRating(), reviewEditText.getText().toString()));
-                        SaveReviews.saveData(reviews, getApplicationContext());                    }
-                });
-                finish();
-            }
-        });
     }
 
 }

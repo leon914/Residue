@@ -27,7 +27,6 @@ public class AlbumReview implements Parcelable {
         return album;
     }
 
-    @NonNull
     public float getRating() {
         return rating;
     }

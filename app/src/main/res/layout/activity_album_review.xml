@@ -15,7 +15,7 @@
         android:background="@drawable/album_border">
 
         <TextView
-            android:id="@+id/textview_album_name_review"
+            android:id="@+id/textview_album_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
@@ -26,7 +26,7 @@
             tools:text="Album Name"/>
 
         <TextView
-            android:id="@+id/textview_artist_name_review"
+            android:id="@+id/textview_artist_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="left"
@@ -39,7 +39,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageview_album_art_review"
+        android:id="@+id/imageview_album_art"
         android:layout_height="@dimen/album_art_size"
         android:layout_width="match_parent"
         android:layout_alignParentEnd="true"
