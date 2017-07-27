@@ -19,7 +19,7 @@ import retrofit2.Response;
 
 public class FindAlbumActivity extends AppCompatActivity {
 
-    public final static String ALBUM_EXTRA = "com.example.lhi06.residue.ALBUM_EXTRA";
+    public static final String ALBUM_EXTRA = "com.example.lhi06.residue.ALBUM_EXTRA";
 
     private AlbumAdapter adapter;
     private ItunesService service;

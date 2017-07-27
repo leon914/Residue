@@ -19,8 +19,7 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ReviewAdapter adapter;
-    private List<AlbumReview> reviews;
+    public static final String REVIEW_EXTRA = "com.example.lhi06.residue.REVIEW_EXTRA";
 
     @BindView(R.id.floatingbutton_addreview) FloatingActionButton addReviewButton;
     @BindView(R.id.edittext_artist_name) EditText searchField;
@@ -32,12 +31,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ReviewAdapter();
+        final ReviewAdapter adapter = new ReviewAdapter();
         recyclerView.setAdapter(adapter);
-        reviews = SaveReviews.loadData(this);
+        final List<AlbumReview> reviews = SaveReviews.loadData(this);
         adapter.setListContent(reviews);
-        //TODO: preview old review onclick listener here
 
+        adapter.setReviewClickListener(new ReviewAdapter.ReviewClickListener() {
+            @Override
+            public void onClick(@NonNull final AlbumReview review) {
+                final Intent intent = new Intent(MainActivity.this, ReviewPreviewActivity.class);
+                intent.putExtra(REVIEW_EXTRA, review);
+                startActivity(intent);
+            }
+        });
         addReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(@NonNull final View view) {

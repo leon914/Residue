@@ -18,17 +18,17 @@ import java.util.List;
 
 final class SaveReviews {
 
-    private final static String FILENAME = "albumReviews.json";
-    private final static Gson GSON = new Gson();
-    private final static Type TYPE_OF_LIST = new TypeToken<List<AlbumReview>>() {}.getType();
+    private static final String FILENAME = "albumReviews.json";
+    private static final Gson GSON = new Gson();
+    private static final Type TYPE_OF_LIST = new TypeToken<List<AlbumReview>>() {}.getType();
 
-    private SaveReviews(){}
+    private SaveReviews() {}
 
-    public static String toJsonString(@NonNull final List<AlbumReview> reviews) {
+    private static String toJsonString(@NonNull final List<AlbumReview> reviews) {
         return GSON.toJson(reviews, TYPE_OF_LIST);
     }
 
-    public static List<AlbumReview> toListOfReviews(@NonNull final String jsonString) {
+    private static List<AlbumReview> toListOfReviews(@NonNull final String jsonString) {
         return GSON.fromJson(jsonString, TYPE_OF_LIST);
     }
 
