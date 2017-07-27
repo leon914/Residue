@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/album_border">
         <RatingBar
-            android:id="@+id/ratingBar"
+            android:id="@+id/ratingbar_album_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
@@ -62,18 +62,12 @@
             android:isIndicator="true"/>
     </FrameLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <TextView
-            android:id="@+id/reviewText"
+            android:id="@+id/edittext_written_review"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/album_border"
             android:gravity="top|left"
             android:padding="@dimen/album_info_border"/>
-
-    </RelativeLayout>
 
 </LinearLayout>

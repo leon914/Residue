@@ -14,12 +14,11 @@ import butterknife.ButterKnife;
 
 public class ReviewPreviewActivity extends AppCompatActivity {
 
-
     @BindView(R.id.textview_album_name_review) TextView albumNameTextView;
     @BindView(R.id.textview_artist_name_review) TextView artistNameTextView;
     @BindView(R.id.imageview_album_art_review) ImageView albumArtworkTextView;
-    @BindView(R.id.ratingBar) RatingBar ratingBar;
-    @BindView(R.id.reviewText) TextView reviewEditText;
+    @BindView(R.id.ratingbar_album_rating) RatingBar reviewRatingBar;
+    @BindView(R.id.edittext_written_review) TextView reviewEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,7 @@ public class ReviewPreviewActivity extends AppCompatActivity {
             albumNameTextView.setText(review.getThisAlbum().getCollectionName());
             artistNameTextView.setText(review.getThisAlbum().getArtistName());
             Picasso.with(this).load(review.getThisAlbum().getArtworkUrl()).into(albumArtworkTextView);
-            ratingBar.setRating(review.getRating());
+            reviewRatingBar.setRating(review.getRating());
             reviewEditText.setText(review.getReview());
         }
     }

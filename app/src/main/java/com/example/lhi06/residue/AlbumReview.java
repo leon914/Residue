@@ -43,7 +43,7 @@ public class AlbumReview implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(final Parcel dest, final int flags) {
+    public void writeToParcel(@NonNull final Parcel dest, final int flags) {
         dest.writeParcelable(album, flags);
         dest.writeFloat(rating);
         dest.writeString(review);
@@ -51,12 +51,12 @@ public class AlbumReview implements Parcelable {
 
     public static final Parcelable.Creator<AlbumReview> CREATOR = new Parcelable.Creator<AlbumReview>() {
         @Override
-        public AlbumReview createFromParcel(Parcel in) {
+        public AlbumReview createFromParcel(@NonNull final Parcel in) {
             return new AlbumReview(in);
         }
 
         @Override
-        public AlbumReview[] newArray(int size) {
+        public AlbumReview[] newArray(final int size) {
             return new AlbumReview[size];
         }
     };

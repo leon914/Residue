@@ -22,10 +22,10 @@ public class AlbumReviewActivity extends AppCompatActivity {
 
     @BindView(R.id.textview_album_name_review) TextView albumNameTextView;
     @BindView(R.id.textview_artist_name_review) TextView artistNameTextView;
-    @BindView(R.id.imageview_album_art_review) ImageView albumArtworkTextView;
-    @BindView(R.id.ratingBar) RatingBar ratingBar;
-    @BindView(R.id.reviewText) EditText reviewEditText;
-    @BindView(R.id.floatingbutton_savereview) FloatingActionButton saveReviewButton;
+    @BindView(R.id.imageview_album_art_review) ImageView albumArtworkImageView;
+    @BindView(R.id.ratingbar_album_rating) RatingBar reviewRatingBar;
+    @BindView(R.id.edittext_written_review) EditText reviewEditText;
+    @BindView(R.id.floatingbutton_save_review) FloatingActionButton saveReviewButton;
 
     private List<AlbumReview> reviews;
 
@@ -40,7 +40,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
         if (album != null) {
             albumNameTextView.setText(album.getCollectionName());
             artistNameTextView.setText(album.getArtistName());
-            Picasso.with(this).load(album.getArtworkUrl()).into(albumArtworkTextView);
+            Picasso.with(this).load(album.getArtworkUrl()).into(albumArtworkImageView);
         }
         saveReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +48,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
                 AsyncTask.execute(new Runnable() {
                     @Override
                     public void run() {
-                        reviews.add(new AlbumReview(album, ratingBar.getRating(), reviewEditText.getText().toString()));
+                        reviews.add(new AlbumReview(album, reviewRatingBar.getRating(), reviewEditText.getText().toString()));
                         SaveReviews.saveData(reviews, getApplicationContext());                    }
                 });
                 finish();
