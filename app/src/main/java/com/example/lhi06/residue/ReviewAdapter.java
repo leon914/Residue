@@ -94,11 +94,6 @@ final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewH
         }
     }
 
-    public void delete(int position) {
-        reviews.remove(position);
-        notifyItemRemoved(position);
-    }
-
     interface ReviewClickListener {
         void onClick(@NonNull final AlbumReview review);
     }
