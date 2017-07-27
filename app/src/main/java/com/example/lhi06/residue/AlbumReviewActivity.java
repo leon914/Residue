@@ -20,11 +20,11 @@ import butterknife.ButterKnife;
 
 public class AlbumReviewActivity extends AppCompatActivity {
 
-    @BindView(R.id.textview_album_name_review) TextView albumName;
-    @BindView(R.id.textview_artist_name_review) TextView artistName;
-    @BindView(R.id.imageview_album_art_review) ImageView albumArtwork;
+    @BindView(R.id.textview_album_name_review) TextView albumNameTextView;
+    @BindView(R.id.textview_artist_name_review) TextView artistNameTextView;
+    @BindView(R.id.imageview_album_art_review) ImageView albumArtworkTextView;
     @BindView(R.id.ratingBar) RatingBar ratingBar;
-    @BindView(R.id.reviewText) EditText reviewText;
+    @BindView(R.id.reviewText) EditText reviewEditText;
     @BindView(R.id.floatingbutton_savereview) FloatingActionButton saveReviewButton;
 
     private List<AlbumReview> reviews;
@@ -38,9 +38,9 @@ public class AlbumReviewActivity extends AppCompatActivity {
 
         final Album album = getIntent().getExtras().getParcelable(FindAlbumActivity.ALBUM_EXTRA);
         if (album != null) {
-            albumName.setText(album.getCollectionName());
-            artistName.setText(album.getArtistName());
-            Picasso.with(this).load(album.getArtworkUrl()).into(albumArtwork);
+            albumNameTextView.setText(album.getCollectionName());
+            artistNameTextView.setText(album.getArtistName());
+            Picasso.with(this).load(album.getArtworkUrl()).into(albumArtworkTextView);
         }
         saveReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +48,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
                 AsyncTask.execute(new Runnable() {
                     @Override
                     public void run() {
-                        reviews.add(new AlbumReview(album, Float.floatToIntBits(ratingBar.getRating()), reviewText.getText().toString()));
+                        reviews.add(new AlbumReview(album, ratingBar.getRating(), reviewEditText.getText().toString()));
                         SaveReviews.saveData(reviews, getApplicationContext());                    }
                 });
                 finish();
