@@ -3,15 +3,15 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical"
               android:background="@drawable/album_border"
+              android:orientation="vertical"
               android:padding="@dimen/album_art_border">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/album_art_size"
-        android:orientation="vertical"
-        android:background="@drawable/album_border">
+        android:background="@drawable/album_border"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textview_album_name"
@@ -39,31 +39,32 @@
 
     <ImageView
         android:id="@+id/imageview_album_art"
-        android:layout_height="@dimen/album_art_size"
         android:layout_width="match_parent"
-        android:src="@mipmap/ic_launcher"
+        android:layout_height="@dimen/album_art_size"
         android:layout_gravity="center"
-        android:background="@android:color/white"/>
+        android:background="@android:color/white"
+        android:src="@mipmap/ic_launcher"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/album_border">
+
         <RatingBar
             android:id="@+id/ratingbar_album_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="0.5"
             android:layout_gravity="center"
-            android:isIndicator="true"/>
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="0.5"/>
     </FrameLayout>
 
-        <TextView
-            android:id="@+id/edittext_written_review"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/album_border"
-            android:padding="@dimen/album_info_border"/>
+    <TextView
+        android:id="@+id/edittext_written_review"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/album_border"
+        android:padding="@dimen/album_info_border"/>
 
 </LinearLayout>
