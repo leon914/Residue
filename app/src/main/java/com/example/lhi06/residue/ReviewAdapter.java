@@ -5,7 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -32,7 +34,7 @@ final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewH
 
     @Override
     public ReviewViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
-        return new ReviewViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item, parent, false));
+        return new ReviewViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.review_row, parent, false));
     }
 
     @Override
@@ -42,12 +44,33 @@ final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewH
         holder.albumName.setText(review.getThisAlbum().getCollectionName());
         Picasso.with(holder.albumArt.getContext()).load(review.getThisAlbum().getArtworkUrl()).into(holder.albumArt);
 
-        holder.rootView.setOnClickListener(new View.OnClickListener() {
+        holder.albumArt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                if (clickListener != null) {
-                    clickListener.onClick(reviews.get(holder.getAdapterPosition()));
-                }
+                clickListener.onClick(reviews.get(holder.getAdapterPosition()));
+            }
+        });
+
+        holder.artistName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                clickListener.onClick(reviews.get(holder.getAdapterPosition()));
+            }
+        });
+
+        holder.albumName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                clickListener.onClick(reviews.get(holder.getAdapterPosition()));
+            }
+        });
+
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                reviews.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getAdapterPosition());
+                SaveReviews.saveData(reviews, v.getContext());
             }
         });
     }
@@ -59,15 +82,21 @@ final class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewH
 
     class ReviewViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.linearLayout_row) View rootView;
+        @BindView(R.id.review_preview_row) LinearLayout rootView;
         @BindView(R.id.textview_artist_name) TextView artistName;
         @BindView(R.id.textview_album_name) TextView albumName;
         @BindView(R.id.imageview_album_art) ImageView albumArt;
+        @BindView(R.id.button_delete) Button deleteButton;
 
         ReviewViewHolder(@NonNull final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+    }
+
+    public void delete(int position) {
+        reviews.remove(position);
+        notifyItemRemoved(position);
     }
 
     interface ReviewClickListener {
