@@ -40,6 +40,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
     @BindView(R.id.progress_bar_tracks) ProgressBar progressBarTracks;
 
     private List<AlbumReview> reviews;
+    private List<Track> tracks;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -63,7 +64,8 @@ public class AlbumReviewActivity extends AppCompatActivity {
                         public void onResponse(final Call<AlbumTrackListResponse> call, final Response<AlbumTrackListResponse> response) {
                             recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
                             recyclerView.setAdapter(adapter);
-                            adapter.setListContent(response.body().getTracks());
+                            tracks = response.body().getTracks();
+                            adapter.setListContent(tracks);
                             adapter.notifyDataSetChanged();
                             recyclerView.setVisibility(View.VISIBLE);
                             progressBarTracks.setVisibility(View.GONE);
@@ -83,7 +85,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
                 AsyncTask.execute(new Runnable() {
                     @Override
                     public void run() {
-                        reviews.add(new AlbumReview(album, reviewRatingBar.getRating(), reviewEditText.getText().toString()));
+                        reviews.add(new AlbumReview(album, reviewRatingBar.getRating(), reviewEditText.getText().toString(), tracks));
                         SaveReviews.saveData(reviews, getApplicationContext());                    }
                 });
                 finish();

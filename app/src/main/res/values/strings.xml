@@ -4,7 +4,7 @@
     <string name="search_button">Search</string>
     <string name="io_exception">Error: API Request Failed -</string>
     <string name="class_exception">Error: Class not recognised -</string>
-    <string name="load_exception">Error: Loading reviews failed -</string>
+    <string name="load_exception">Error: Loading reviews failed, New User Detected -</string>
     <string name="save_exception">Error: Saving reviews Failed -</string>
     <string name="review_hint">Write your review here...</string>
     <string name="placeholder_artist_name">Wu Tang Clan</string>
