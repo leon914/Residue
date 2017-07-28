@@ -56,6 +56,7 @@ public class FindAlbumActivity extends AppCompatActivity {
             public void onResponse(final Call<AlbumSearchResponse> call, final Response<AlbumSearchResponse> response) {
                 // on background thread
                 adapter.setListContent(response.body().getResults());
+
             }
 
             @Override

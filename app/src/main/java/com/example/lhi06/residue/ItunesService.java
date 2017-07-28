@@ -16,7 +16,7 @@ import retrofit2.http.Query;
     private final ItunesApi service;
 
      ItunesService() {
-        Retrofit retrofit = new Retrofit.Builder()
+        final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -24,14 +24,25 @@ import retrofit2.http.Query;
         service = retrofit.create(ItunesApi.class);
     }
 
-    void getArtistsAlbums(@NonNull final String artistName, Callback<AlbumSearchResponse> callback) {
+    void getArtistsAlbums(@NonNull final String artistName, final Callback<AlbumSearchResponse> callback) {
         service.getArtistsAlbums(artistName).enqueue(callback);
+    }
+
+    void getAlbumTracks(@NonNull final String collectionId, final Callback<AlbumTrackListResponse> callback) {
+        service.getAlbumTracks(collectionId).enqueue(callback);
     }
 
     interface ItunesApi {
 
         @GET("/search?entity=album&attribute=artistTerm")
         Call<AlbumSearchResponse> getArtistsAlbums(@Query("term") String artistName);
+
+        @GET("/lookup?entity=song")
+        Call<AlbumTrackListResponse> getAlbumTracks(@Query("id") String collectionId);
     }
 
 }
+//
+//https://itunes.apple.com/lookup?id=211192863
+//
+//        https://itunes.apple.com/search?term=guns and roses&entity=album&attribute=artistTerm

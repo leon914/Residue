@@ -41,9 +41,6 @@
         android:id="@+id/imageview_album_art_review"
         android:layout_height="@dimen/album_art_size"
         android:layout_width="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
         android:src="@mipmap/ic_launcher"
         android:layout_gravity="center"
         android:background="@android:color/white"/>
