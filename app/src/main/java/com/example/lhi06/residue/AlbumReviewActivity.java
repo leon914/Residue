@@ -61,6 +61,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
                     service.getAlbumTracks(album.getCollectionID(), new Callback<AlbumTrackListResponse>() {
                         @Override
                         public void onResponse(final Call<AlbumTrackListResponse> call, final Response<AlbumTrackListResponse> response) {
+                            response.body().getTracks().remove(0);
                             recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
                             recyclerView.setAdapter(adapter);
                             adapter.setListContent(response.body().getTracks());

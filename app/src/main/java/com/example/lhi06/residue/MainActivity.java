@@ -9,13 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.EditText;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private List<AlbumReview> reviews;
 
     @BindView(R.id.floatingbutton_addreview) FloatingActionButton addReviewButton;
-    @BindView(R.id.edittext_artist_name) EditText searchField;
     @BindView(R.id.recycleview_reviews) RecyclerView recyclerView;
 
     @Override
@@ -54,12 +51,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    @OnClick(R.id.search_button)
-    public void onSearchClicked(@NonNull final View view) {
-        //TODO: Code for searching for reviews done
-        
     }
 
 }

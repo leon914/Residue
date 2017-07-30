@@ -6,22 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.lhi06.residue.MainActivity">
 
-    <EditText
-        android:id="@+id/edittext_artist_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/search_box"
-        android:layout_toLeftOf="@+id/search_button"/>
-
-    <Button
-        android:id="@+id/search_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="@string/search_button"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white"/>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleview_reviews"
         android:layout_height="match_parent"
