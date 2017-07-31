@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/track_element"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/float_button_margin"
+              android:background="@drawable/album_border">
+    <TextView
+        android:id="@+id/textview_track_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:text="@string/placeholder_album_name"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/list_font_size"
+        android:textStyle="bold"/>
+
+</LinearLayout>

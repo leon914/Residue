@@ -13,11 +13,13 @@ public class Album implements Parcelable {
 
     @SerializedName("artworkUrl100")
     private String artworkUrl;
+    private String collectionId;
 
     Album(@NonNull final Parcel in) {
         collectionName = in.readString();
         artistName = in.readString();
         artworkUrl = in.readString();
+        collectionId = in.readString();
     }
 
     @NonNull
@@ -35,6 +37,9 @@ public class Album implements Parcelable {
         return artworkUrl;
     }
 
+    @NonNull
+    String getCollectionID() { return collectionId; }
+
     @Override
     public int describeContents() {
         return 0;
@@ -45,6 +50,7 @@ public class Album implements Parcelable {
         dest.writeString(collectionName);
         dest.writeString(artistName);
         dest.writeString(artworkUrl);
+        dest.writeString(collectionId);
     }
 
     public static final Parcelable.Creator<Album> CREATOR = new Parcelable.Creator<Album>() {

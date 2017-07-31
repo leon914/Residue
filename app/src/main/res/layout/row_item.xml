@@ -16,8 +16,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@drawable/album_border"
+        android:orientation="vertical"
         android:padding="@dimen/album_info_border">
 
         <TextView
@@ -29,7 +29,7 @@
             android:text="@string/placeholder_album_name"
             android:textColor="@android:color/black"
             android:textSize="@dimen/list_font_size"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textview_artist_name"
@@ -41,7 +41,7 @@
             android:text="@string/placeholder_artist_name"
             android:textColor="@android:color/white"
             android:textSize="@dimen/list_font_size"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
     </LinearLayout>
 
 
