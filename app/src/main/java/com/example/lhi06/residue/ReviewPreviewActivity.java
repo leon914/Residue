@@ -38,8 +38,6 @@ public class ReviewPreviewActivity extends AppCompatActivity {
     @BindView(R.id.recycleview_tracks) RecyclerView recyclerView;
     @BindView(R.id.progress_bar_tracks) ProgressBar progressBarTracks;
 
-    private List<AlbumReview> reviews;
-
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +45,6 @@ public class ReviewPreviewActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         adapter = new TrackAdapter();
         service = new ItunesService();
-        reviews = SaveReviews.loadData(this);
 
         final AlbumReview review = getIntent().getExtras().getParcelable(MainActivity.REVIEW_EXTRA);
         if (review != null) {
@@ -80,7 +77,6 @@ public class ReviewPreviewActivity extends AppCompatActivity {
             });
         } else {
             Toast.makeText(getApplicationContext(), R.string.io_exception, Toast.LENGTH_SHORT).show();
-            reviews = new ArrayList<>();
         }
     }
 }

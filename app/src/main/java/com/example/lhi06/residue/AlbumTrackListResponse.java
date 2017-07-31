@@ -1,7 +1,5 @@
 package com.example.lhi06.residue;
 
-import android.support.annotation.NonNull;
-
 import java.util.List;
 
 /**
@@ -15,10 +13,5 @@ public class AlbumTrackListResponse {
     public List<Track> getTracks() {
         return results;
     }
-
-    public void setResults(@NonNull final List<Track> tracks) {
-        this.results = tracks;
-    }
-
 
 }
