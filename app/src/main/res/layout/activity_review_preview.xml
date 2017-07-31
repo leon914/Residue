@@ -103,28 +103,16 @@
         android:layout_weight="0.5">
 
         <TextView
-            android:id="@+id/edittext_written_review"
+            android:id="@+id/textview_written_review"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/album_border"
             android:gravity="start"
             android:hint="@string/review_hint"
             android:padding="@dimen/album_info_border"/>
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floatingbutton_save_review"
-            android:layout_width="@dimen/float_button_width"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="@dimen/float_button_margin"
-            android:layout_marginEnd="@dimen/float_button_margin"
-            android:layout_marginRight="@dimen/float_button_margin"
-            app:backgroundTint="@android:color/black"
-            app:srcCompat="@android:drawable/ic_menu_save"/>
+        
     </RelativeLayout>
 </LinearLayout>
 
-
 </LinearLayout>
+

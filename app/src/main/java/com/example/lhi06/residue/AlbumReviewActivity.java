@@ -26,9 +26,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AlbumReviewActivity extends AppCompatActivity {
-
+  
     private ItunesService service;
     private TrackAdapter adapter;
+    private List<AlbumReview> reviews;
+    private List<Track> tracks;
 
     @BindView(R.id.textview_album_name) TextView albumNameTextView;
     @BindView(R.id.textview_artist_name) TextView artistNameTextView;
@@ -38,10 +40,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
     @BindView(R.id.recycleview_tracks) RecyclerView recyclerView;
     @BindView(R.id.floatingbutton_save_review) FloatingActionButton saveReviewButton;
     @BindView(R.id.progress_bar_tracks) ProgressBar progressBarTracks;
-
-    private List<AlbumReview> reviews;
-    private List<Track> tracks;
-
+  
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,18 +78,20 @@ public class AlbumReviewActivity extends AppCompatActivity {
                 }
             });
         }
-        saveReviewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                AsyncTask.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        reviews.add(new AlbumReview(album, reviewRatingBar.getRating(), reviewEditText.getText().toString(), tracks));
-                        SaveReviews.saveData(reviews, getApplicationContext());                    }
-                });
-                finish();
-            }
-        });
+            saveReviewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View v) {
+                    AsyncTask.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            reviews.add(new AlbumReview(album, reviewRatingBar.getRating(), reviewEditText.getText().toString()));
+                            SaveReviews.saveData(reviews, getApplicationContext());
+                        }
+                    });
+                    finish();
+                }
+            });
+        }
     }
 
 }

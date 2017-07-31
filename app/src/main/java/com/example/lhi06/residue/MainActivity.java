@@ -21,9 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String REVIEW_EXTRA = "com.example.lhi06.residue.REVIEW_EXTRA";
 
-    private ReviewAdapter adapter;
-    private List<AlbumReview> reviews;
-
     @BindView(R.id.floatingbutton_addreview) FloatingActionButton addReviewButton;
     @BindView(R.id.edittext_artist_name) EditText searchField;
     @BindView(R.id.recycleview_reviews) RecyclerView recyclerView;
@@ -34,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ReviewAdapter();
+        final ReviewAdapter adapter = new ReviewAdapter();
         recyclerView.setAdapter(adapter);
-        reviews = SaveReviews.loadData(this);
+        final List<AlbumReview> reviews = SaveReviews.loadData(this);
         adapter.setListContent(reviews);
 
         adapter.setReviewClickListener(new ReviewAdapter.ReviewClickListener() {
