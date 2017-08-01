@@ -8,14 +8,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class Album implements Parcelable {
 
-    private String collectionName;
-    private String artistName;
+    private final String collectionName;
+    private final String artistName;
 
     @SerializedName("artworkUrl100")
-    private String artworkUrl;
-    private String collectionId;
+    private final String artworkUrl;
+    private final String collectionId;
 
-    Album(@NonNull final Parcel in) {
+    private Album(@NonNull final Parcel in) {
         collectionName = in.readString();
         artistName = in.readString();
         artworkUrl = in.readString();

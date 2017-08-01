@@ -16,9 +16,6 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
@@ -27,8 +24,8 @@ import retrofit2.Response;
 
 public class ReviewPreviewActivity extends AppCompatActivity {
 
-    private ItunesService service;
-    private TrackAdapter adapter;
+    private final ItunesService service = new ItunesService();
+    private final TrackAdapter adapter = new TrackAdapter();
 
     @BindView(R.id.textview_album_name) TextView albumNameTextView;
     @BindView(R.id.textview_artist_name) TextView artistNameTextView;
@@ -43,10 +40,8 @@ public class ReviewPreviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_preview);
         ButterKnife.bind(this);
-        adapter = new TrackAdapter();
-        service = new ItunesService();
-
         final AlbumReview review = getIntent().getExtras().getParcelable(MainActivity.REVIEW_EXTRA);
+
         if (review != null) {
             albumNameTextView.setText(review.getThisAlbum().getCollectionName());
             artistNameTextView.setText(review.getThisAlbum().getArtistName());

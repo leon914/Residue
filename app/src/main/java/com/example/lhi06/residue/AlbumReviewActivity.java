@@ -27,28 +27,32 @@ import retrofit2.Response;
 
 public class AlbumReviewActivity extends AppCompatActivity {
 
-    private ItunesService service;
-    private TrackAdapter adapter;
+    @BindView(R.id.textview_album_name)
+    TextView albumNameTextView;
+    @BindView(R.id.textview_artist_name)
+    TextView artistNameTextView;
+    @BindView(R.id.imageview_album_art)
+    ImageView albumArtworkImageView;
+    @BindView(R.id.ratingbar_album_rating)
+    RatingBar reviewRatingBar;
+    @BindView(R.id.edittext_written_review)
+    EditText reviewEditText;
+    @BindView(R.id.recycleview_tracks)
+    RecyclerView recyclerView;
+    @BindView(R.id.floatingbutton_save_review)
+    FloatingActionButton saveReviewButton;
+    @BindView(R.id.progress_bar_tracks)
+    ProgressBar progressBarTracks;
 
-    @BindView(R.id.textview_album_name) TextView albumNameTextView;
-    @BindView(R.id.textview_artist_name) TextView artistNameTextView;
-    @BindView(R.id.imageview_album_art) ImageView albumArtworkImageView;
-    @BindView(R.id.ratingbar_album_rating) RatingBar reviewRatingBar;
-    @BindView(R.id.edittext_written_review) EditText reviewEditText;
-    @BindView(R.id.recycleview_tracks) RecyclerView recyclerView;
-    @BindView(R.id.floatingbutton_save_review) FloatingActionButton saveReviewButton;
-    @BindView(R.id.progress_bar_tracks) ProgressBar progressBarTracks;
-
+    private final ItunesService service = new ItunesService();
+    private final TrackAdapter adapter = new TrackAdapter();
     private List<AlbumReview> reviews;
-    private List<Track> tracks;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album_review);
         ButterKnife.bind(this);
-        adapter = new TrackAdapter();
-        service = new ItunesService();
         reviews = SaveReviews.loadData(this);
 
         final Album album = getIntent().getExtras().getParcelable(FindAlbumActivity.ALBUM_EXTRA);
@@ -65,8 +69,7 @@ public class AlbumReviewActivity extends AppCompatActivity {
                             response.body().getTracks().remove(0);
                             recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
                             recyclerView.setAdapter(adapter);
-                            tracks = response.body().getTracks();
-                            adapter.setListContent(tracks);
+                            adapter.setListContent(response.body().getTracks());
                             adapter.notifyDataSetChanged();
                             recyclerView.setVisibility(View.VISIBLE);
                             progressBarTracks.setVisibility(View.GONE);
@@ -79,19 +82,21 @@ public class AlbumReviewActivity extends AppCompatActivity {
                     });
                 }
             });
+            saveReviewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View v) {
+                    AsyncTask.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            reviews.add(new AlbumReview(album, reviewRatingBar.getRating(), reviewEditText.getText().toString()));
+                            SaveReviews.saveData(reviews, getApplicationContext());
+                        }
+                    });
+                    finish();
+                }
+            });
         }
-        saveReviewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                AsyncTask.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        reviews.add(new AlbumReview(album, reviewRatingBar.getRating(), reviewEditText.getText().toString()));
-                        SaveReviews.saveData(reviews, getApplicationContext());                    }
-                });
-                finish();
-            }
-        });
+
     }
 
 }

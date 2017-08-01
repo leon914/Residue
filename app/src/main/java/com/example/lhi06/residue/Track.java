@@ -2,6 +2,7 @@ package com.example.lhi06.residue;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 /**
  * Created by lhi06 on 27/07/2017.
@@ -9,10 +10,10 @@ import android.os.Parcelable;
 
 public class Track implements Parcelable {
 
-    private String trackName;
-    private String previewUrl;
+    private final String trackName;
+    private final String previewUrl;
 
-    private Track(Parcel in) {
+    private Track(@NonNull final Parcel in) {
         trackName = in.readString();
         previewUrl = in.readString();
     }
@@ -27,12 +28,12 @@ public class Track implements Parcelable {
 
     public static final Creator<Track> CREATOR = new Creator<Track>() {
         @Override
-        public Track createFromParcel(Parcel in) {
+        public Track createFromParcel(@NonNull final Parcel in) {
             return new Track(in);
         }
 
         @Override
-        public Track[] newArray(int size) {
+        public Track[] newArray(final int size) {
             return new Track[size];
         }
     };
@@ -43,7 +44,7 @@ public class Track implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(final Parcel dest, final int flags) {
+    public void writeToParcel(@NonNull final Parcel dest, final int flags) {
         dest.writeString(trackName);
         dest.writeString(previewUrl);
     }
